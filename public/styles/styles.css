@@ -1,0 +1,298 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;700;800;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Hanken+Grotesk:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+:root {
+    --bege-claro: #f3d9b7;
+    /* Bege claro */
+    --bege-escuro: #d2b48c;
+    /* Bege escuro */
+    --rosa-claro: #fc98aa;
+    /* Rosa claro puxado para o salmão */
+    --branco: #ffffff;
+    /* Letras brancas */
+    --grey: #acacac;
+    /* cinza */
+    --light-grey: #f1f1f1;
+    /* cinza claro */
+    --marrom: #654321;
+    /* Detalhes em marrom */
+    --marrom-escuro: #472e14;
+    /* Detalhes em marrom */
+}
+
+/* Estilo do scrollbar */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+/* Esconde o scrollbar no topo */
+body.hide-scroll::-webkit-scrollbar-thumb {
+    background-color: transparent;
+}
+
+/* Estilo da thumb do scrollbar */
+::-webkit-scrollbar-thumb {
+    background-color: #888;
+    border-radius: 4px;
+}
+
+* {
+    margin: 0px;
+    padding: 0px;
+    color: var(--branco);
+    font-family: 'Hanken Grotesk', sans-serif;
+}
+
+a {
+    text-decoration: none !important;
+    cursor: pointer;
+}
+
+button {
+    transition: 0.3s;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+button a {
+    color: inherit;
+}
+
+.fade-top,
+.fade-bottom {
+    left: 0;
+    width: 100%;
+    height: 60px;
+    position: absolute;
+    z-index: 11;
+}
+
+.fade-top {
+    top: 0;
+    background: linear-gradient(to top, transparent, var(--bege-escuro));
+}
+
+.fade-bottom {
+    bottom: 0;
+    background: linear-gradient(to bottom, transparent, var(--bege-escuro));
+}
+
+.fade-in-slide-up {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: opacity 2.5s ease, transform 2.5s ease;
+}
+
+.fade-in-slide-up.btn-1 {
+    transition: background-color 0.8s ease, color 0.8s ease, opacity 2.5s ease, transform 2.5s ease;
+}
+
+.fade-in-slide-up.ativo {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.btn-1 {
+    display: block;
+    padding: 12px 20px;
+    font-size: 18px;
+    background-color: var(--marrom);
+    color: var(--branco);
+    font-weight: bold;
+    margin: auto;
+    border: 3px solid var(--marrom);
+    border-radius: 8px;
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.3);
+}
+
+.btn-1:hover {
+    background-color: var(--bege-claro);
+    color: var(--marrom);
+}
+
+body {
+    width: 100%;
+    overflow-x: hidden;
+    position: relative;
+    background-color: var(--bege-escuro) !important;
+}
+
+header {
+    position: absolute;
+    width: 100%;
+    display: flex;
+    padding: 0 40px;
+    height: 120px;
+    align-items: center;
+    justify-content: space-between;
+    z-index: 2;
+}
+
+.logo {
+    background-color: rgb(228, 228, 228);
+    width: 200px;
+    height: 80px;
+    transition: all 0.8s ease;
+}
+
+.logo:hover {
+    transform: scale(0.9);
+}
+
+.logo img {
+    height: 80px;
+}
+
+ul {
+    padding: 0;
+}
+
+header nav ul li {
+    display: inline-block;
+    margin-left: 30px;
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 20px;
+    transition: all 0.8s ease;
+}
+
+.redes-sociais {
+    position: absolute;
+    z-index: 2;
+    left: 40px;
+    top: 50vh;
+    transform: translateY(-50%);
+}
+
+.redes-sociais ul {
+    padding: 0;
+}
+
+.redes-sociais ul li {
+    display: block;
+    margin-bottom: 15px;
+}
+
+.redes-sociais ul li i {
+    font-size: 22px;
+    transition: all 0.8s ease;
+}
+
+nav li:hover {
+    color: var(--marrom);
+}
+
+nav li:hover i {
+    color: var(--light-grey);
+    transform: scale(1.2);
+}
+
+.foto-fundo {
+    position: fixed;
+    width: 100%;
+    z-index: -1;
+}
+
+.apresentacao-principal {
+    padding: 120px 100px;
+    padding-bottom: 0;
+    height: 100vh;
+    position: relative;
+    background-color: var(--bege-escuro) !important;
+}
+
+.apresentacao-principal .texto {
+    height: 80%;
+    margin-left: 60px;
+    display: flex;
+    align-items: center;
+}
+
+.apresentacao-principal h1 {
+    font-size: 100px;
+    font-weight: 800;
+}
+
+.apresentacao-principal h3 {
+    margin-bottom: 15px;
+}
+
+.apresentacao-principal p {
+    max-width: 600px;
+    font-size: 18px;
+    line-height: 1.8em;
+    color: var(--light-grey);
+}
+
+.apresentacao-principal img {
+    position: absolute;
+    bottom: 0;
+    right: 180px;
+    height: 88vh;
+    transition: opacity 0.2s;
+}
+
+.fade-out {
+    opacity: 0;
+}
+
+.sobre-mim {
+    padding: 150px;
+    min-height: 100vh;
+    background-color: var(--bege-escuro);
+}
+
+.sobre-mim .titulo-img {
+    height: 120px;
+    margin-bottom: 60px;
+}
+
+.caffe-img {
+    width: 80%;
+    height: auto;
+    display: block;
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.3);
+}
+
+.sobre-mim .texto {
+    font-size: 18px;
+    line-height: 1.8em;
+    margin-top: 40px;
+    margin-bottom: 50px;
+    text-align: center;
+}
+
+.formacao {
+    padding: 80px;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.5);
+}
+
+.formacao .titulo-img {
+    height: 120px;
+}
+
+.whatsapp-button {
+    position: fixed;
+    bottom: 35px;
+    right: 40px;
+    width: 55px;
+    height: 55px;
+    background-color: var(--grey);
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    object-fit: cover;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease-in-out;
+    z-index: 995;
+}
+
+.whatsapp-button:hover {
+    transform: scale(1.1);
+}
+
+.whatsapp-button i {
+    font-size: 25px;
+}
