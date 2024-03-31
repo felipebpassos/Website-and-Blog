@@ -1,0 +1,168 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&display=swap');
+
+* {
+    font-family: 'Open Sans', sans-serif;
+}
+
+:root {
+    --bege-claro: #f3d9b7;
+    /* Bege claro */
+    --bege-escuro: #d2b48c;
+    /* Bege escuro */
+    --rosa-claro: #fc98aa;
+    /* Rosa claro puxado para o salmão */
+    --branco: #ffffff;
+    /* Letras brancas */
+    --grey: #acacac;
+    /* cinza */
+    --light-grey: #f1f1f1;
+    /* cinza claro */
+    --marrom: #654321;
+    /* Detalhes em marrom */
+    --marrom-escuro: #472e14;
+    /* Detalhes em marrom */
+    --marrom-claro: rgb(128, 77, 22);
+    /* Detalhes em marrom */
+}
+
+.form-control {box-shadow: none !important;}
+.form-control:focus {border: 1px solid var(--marrom);}
+
+header {
+    width: 100%;
+    height: 150px;
+    background-color: var(--bege-claro);
+    color: var(--marrom-escuro);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.pesquisar {
+    padding: 30px 0;
+    width: 100%;
+    background-color: #eeeeee;
+}
+
+.btn-primary {background-color: var(--marrom); border: 1px solid var(--marrom);}
+
+.btn-primary:hover {background-color: var(--marrom-escuro); border: 1px solid var(--marrom);}
+
+.container {
+    margin-top: 50px;
+}
+
+.post-link {text-decoration: none;}
+
+.card {
+    border: none !important;
+    box-shadow: 0px 0px 12px rgba(0, 0, 0, 0.1);
+    transition: transform 0.5s ease;
+}
+.post-link:hover .card {transform: translateY(-5px);}
+
+.card .capa {width: 100%; height: 250px; display: flex; overflow: hidden;}
+.card .capa img {object-fit: contain;}
+
+.card-title {height: 80px; font-weight: bold; color: var(--marrom-claro);}
+
+.card-text {color: #7c7c7c;}
+
+main {
+    padding-bottom: 80px;
+}
+
+.post {
+    max-width: 1150px;
+    margin: auto;
+    background-color: #ffff;
+    padding: 40px 60px;
+}
+
+.post .titulo {
+    font-size: 3.5em;
+    font-weight: 700;
+    color: var(--marrom-escuro);
+    margin-bottom: 30px;
+}
+
+.post img,
+.post iframe {
+    display: block;
+    margin: 50px auto;
+}
+
+.compartilhar {
+    display: flex;
+    align-items: center;
+}
+
+.compartilhar p {
+    color: #7c7c7c;
+    font-size: 18px;
+    font-weight: bold;
+    margin: 0;
+    margin-right: 30px;
+}
+
+.compartilhar a {
+    width: 50px;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #ffff;
+    margin-right: 20px;
+    text-decoration: none;
+    transition: all 0.8s ease;
+}
+
+.compartilhar a i {font-size: 18px;}
+
+.facebook {
+    background-color: #3b5998;
+}
+.facebook:hover {
+    background-color: #4a71c7;
+}
+
+.x {
+    background-color: #000000;
+}
+.x:hover {
+    background-color: #242424;
+}
+
+.linkedin {
+    background-color: #0077b5;
+}
+.linkedin:hover {
+    background-color: #0097e9;
+}
+
+.whatsapp {
+    background-color: #25d366;
+}
+.whatsapp:hover {
+    background-color: rgb(0, 168, 0);
+}
+
+.telegram {
+    background-color: #2ca5e0;
+}
+.telegram:hover {
+    background-color: #5ac3f7;
+}
+
+.opcoes {display: flex; justify-content: space-between;}
+.info {display: flex; margin: 20px 0;}
+.info div {display: flex; margin-right: 20px; align-items: center;}
+.info i {font-size: 18px; margin-right: 10px; color: var(--marrom-escuro);}
+.info span {font-size: 18px;}
+
+.conteudo {margin-bottom: 50px;}
+
+.conteudo p, .conteudo li {font-size: 18px; line-height: 1.8em; color: #6e6e6e;}
+.conteudo p {text-align: justify;}
+
+.conteudo h1, .conteudo h2, .conteudo h3 {color: var(--marrom); margin-bottom: 30px; margin-top: 20px;}

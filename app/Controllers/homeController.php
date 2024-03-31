@@ -9,7 +9,7 @@ Class homeController extends Controller {
 
         //set page data
         $data['view'] = '';
-        $data['title'] = 'Home';
+        $data['title'] = 'Gabriela Castro | Psicóloga';
         $data['description'] = '';
         $data['styles'] = array('');
         $data['scripts_head'] = array('');
@@ -21,5 +21,3 @@ Class homeController extends Controller {
     }
 
 }
-
-?>

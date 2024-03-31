@@ -1,41 +1,31 @@
 <?php
 
 class Conexao {
-
     private static $instancia;
 
     private function __construct() {}
 
-    public static function getConexao()
-    {
-
-        //verifies if $instancia was set already
-        if (isset(self::$instancia)) {
-
-            //Defines the database paramethers
-            $dbname = 'viralsearch';
+    public static function getConexao() {
+        // verifica se $instancia já foi definida
+        if (!isset(self::$instancia)) {
+            // Define os parâmetros do banco de dados
+            $dbname = 'gabi';
             $host = 'localhost';
             $user = 'root';
             $password = '';
 
-            //try to conect
+            // tenta conectar
             try {
-
                 self::$instancia = new PDO("mysql:host=$host;dbname=$dbname;charset=utf8", $user, $password);
-
-            } catch (Exception $error) {
-
-                //In case of error, it sends a message
-                echo 'Erro: ' . $error;
-
+                // define para que o PDO lance exceções em caso de erro
+                self::$instancia->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+            } catch (PDOException $error) {
+                // Em caso de erro, lança uma exceção
+                throw new Exception('Erro ao conectar ao banco de dados: ' . $error->getMessage());
             }
-
         }
 
-
+        // Retorna a instância da conexão PDO
+        return self::$instancia;
     }
-
-
 }
-
-?>

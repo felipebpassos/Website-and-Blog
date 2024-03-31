@@ -12,7 +12,7 @@
     <title>
         <?php echo $title; ?>
     </title>
-    <link rel="icon" href="http://localhost/gabi/public/img/logo-ico.ico">
+    <link rel="icon" href="http://localhost/gabi/public/img/logo2-ico.ico">
 
     <!-- ... estilos ... -->
     <link rel="stylesheet" href="http://localhost/gabi/public/styles/styles.css">
@@ -50,7 +50,7 @@
             <ul>
                 <li>Sobre Mim</li>
                 <li>Agendar Horário</li>
-                <li>Blog</li>
+                <li><a href="http://localhost/gabi/blog">Blog</a></li>
             </ul>
         </nav>
 
@@ -76,8 +76,9 @@
             <div class="texto">
                 <div>
                     <h1 class="fade-in-slide-up">GABRIELA<br>CASTRO</h1>
-                    <h3 class="fade-in-slide-up">Psicoterapia | Saúde Mental | Bem-estar</h3>
-                    <p class="fade-in-slide-up">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed vestibulum
+                    <h3 class="fade-in-slide-up-delay">Psicoterapia | Saúde Mental | Bem-estar</h3>
+                    <p class="fade-in-slide-up-long-delay">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed
+                        vestibulum
                         urna id ligula consequat,
                         eget dapibus magna fermentum. Integer id sagittis sapien, sit amet volutpat justo. Mauris sed
                         dapibus elit.</p>
@@ -94,8 +95,10 @@
                     <div class="row">
                         <!-- Coluna 1 -->
                         <div class="col-md-5">
-                            <img class="titulo-img fade-in-slide-up" src="http://localhost/gabi/public/img/sobre.png" alt="">
-                            <img class="caffe-img fade-in-slide-up" src="http://localhost/gabi/public/img/gabi_caffe.jpg" alt="">
+                            <img class="titulo-img fade-in-slide-up" src="http://localhost/gabi/public/img/sobre.png"
+                                alt="">
+                            <img class="caffe-img fade-in-slide-up"
+                                src="http://localhost/gabi/public/img/gabi_caffe.jpg" alt="">
                         </div>
                         <!-- Coluna 2 -->
                         <div class="col-md-7">
@@ -122,12 +125,42 @@
             </div>
             <div class="formacao">
                 <img class="titulo-img fade-in-slide-up" src="http://localhost/gabi/public/img/formacao.png" alt="">
+                <div class="texto">
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed vestibulum urna id ligula
+                        consequat, eget dapibus magna fermentum. Integer id sagittis sapien, sit amet volutpat
+                        justo. Mauris sed dapibus elit.</p>
+                    <h3>Especialização</h3>
+                    <ul>
+                        <li>
+                            <h5>Graduação</h5>
+                            <span>UNIT - Universidade Tiradentes - 2022</span>
+                        </li>
+                        <li>
+                            <h5>Formação em Terapia Cognitivo-Comportamental</h5>
+                            <span>FLNC Cursos Digitais - 2023</span>
+                        </li>
+                        <li>
+                            <h5>Análise do Comportamento Aplicada (ABA)</h5>
+                            <span>Unova Cursos - 2023</span>
+                        </li>
+                        <li>
+                            <h5>Avaliação Psicológica</h5>
+                            <span>Unova Cursos - 2024</span>
+                        </li>
+                    </ul>
+                </div>
             </div>
         </section>
 
         <!-- Tratamentos -->
         <section class="tratamentos">
 
+        </section>
+
+        <!-- Agendamento de consulta e contato -->
+        <section class="agendamento">
+            <img class="titulo-img fade-in-slide-up" src="http://localhost/gabi/public/img/agendar.png" alt="">
+            <button class="btn-1 fade-in-slide-up" style="margin-top: 60px;">Agende agora</button>
         </section>
 
     </main>
@@ -140,7 +173,7 @@
         </div>
     </footer>
 
-    <a href="https://api.whatsapp.com/send?phone=5579999858914" class="whatsapp-button" target="_blank">
+    <a href="https://api.whatsapp.com/send?phone=5579981026492" class="whatsapp-button" target="_blank">
         <i class="fa-brands fa-whatsapp"></i>
     </a>
 
