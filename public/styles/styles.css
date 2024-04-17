@@ -1,9 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;700;800;900&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Hanken+Grotesk:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 
 :root {
-    --bege-claro: #f3d9b7;
+    --bege-claro: #f3dcbd;
     /* Bege claro */
     --bege-escuro: #d2b48c;
     /* Bege escuro */
@@ -15,7 +16,7 @@
     /* cinza */
     --light-grey: #f1f1f1;
     /* cinza claro */
-    --marrom: #654321;
+    --marrom: #6e4c34;
     /* Detalhes em marrom */
     --marrom-escuro: #472e14;
     /* Detalhes em marrom */
@@ -132,25 +133,31 @@ header {
     width: 100%;
     display: flex;
     padding: 0 40px;
-    height: 120px;
+    height: 80px;
     align-items: center;
     justify-content: space-between;
     z-index: 2;
 }
 
-.logo {
-    background-color: rgb(228, 228, 228);
-    width: 200px;
-    height: 80px;
+.crp {
+    color: var(--branco);
+    font-size: 19px;
+    font-family: 'Poppins', sans-serif;
+    width: fit-content;
+    height: auto;
     transition: all 0.8s ease;
+    cursor: default;
+    position: relative;
 }
 
-.logo:hover {
-    transform: scale(0.9);
-}
-
-.logo img {
-    height: 80px;
+.crp::after {
+    content: ''; /* Adiciona o conteúdo do pseudo-elemento */
+    position: absolute; /* Define a posição absoluta */
+    top: 50%; /* Move o pseudo-elemento para o meio verticalmente */
+    right: -95px; /* Posiciona o pseudo-elemento à direita do texto */
+    height: 1px; /* Define a altura da linha */
+    width: 80px; /* Define a largura da linha */
+    background-color: var(--branco); /* Define a cor da linha */
 }
 
 ul {
@@ -171,9 +178,9 @@ header nav ul li::after {
     content: '';
     position: absolute;
     left: 50%;
-    bottom: -8px;
+    bottom: -4px;
     width: 0;
-    height: 4px;
+    height: 2px;
     border-radius: 2px;
     background-color: var(--marrom);
     transition: width 0.3s ease, left 0.3s ease;
@@ -226,7 +233,7 @@ nav li:hover i {
 }
 
 .apresentacao-principal {
-    padding: 120px 100px;
+    padding: 140px 100px;
     padding-bottom: 0;
     height: 100vh;
     position: relative;
@@ -235,14 +242,16 @@ nav li:hover i {
 
 .apresentacao-principal .texto {
     height: 80%;
-    margin-left: 60px;
+    margin-left: 40px;
     display: flex;
     align-items: center;
 }
 
 .apresentacao-principal h1 {
-    font-size: 100px;
+    font-size: 110px;
+    line-height: 1em;
     font-weight: 800;
+    margin-bottom: 30px;
 }
 
 .apresentacao-principal h3 {
@@ -251,17 +260,27 @@ nav li:hover i {
 
 .apresentacao-principal p {
     max-width: 600px;
-    font-size: 18px;
+    font-size: 20px;
     line-height: 1.8em;
     color: var(--light-grey);
 }
 
 .apresentacao-principal img {
     position: absolute;
+}
+
+#imagem-fade {
     bottom: 0;
-    right: 180px;
-    height: 88vh;
+    right: 140px;
+    height: 90vh;
     transition: opacity 0.2s;
+}
+
+#decor {
+    display: none;
+    bottom: 36%;
+    right: -10px;
+    height: 44vh;
 }
 
 .fade-out {

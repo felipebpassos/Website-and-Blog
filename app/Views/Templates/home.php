@@ -12,7 +12,7 @@
     <title>
         <?php echo $title; ?>
     </title>
-    <link rel="icon" href="http://localhost/gabi/public/img/logo2-ico.ico">
+    <link rel="icon" href="http://localhost/gabi/public/img/logo-ico.ico">
 
     <!-- ... estilos ... -->
     <link rel="stylesheet" href="http://localhost/gabi/public/styles/styles.css">
@@ -42,9 +42,9 @@
     <!-- Cabeçalho -->
     <header>
 
-        <a href="http://localhost/gabi/" class="logo">
-            <img src="http://localhost/gabi/public/img/logo2.png" alt="Logo Psicóloga Gabriela Castro">
-        </a>
+        <span class="crp">
+            CRP 19/4873
+        </span>
 
         <nav>
             <ul>
@@ -58,10 +58,8 @@
 
     <nav class="redes-sociais">
         <ul>
-            <li><a href="https://www.instagram.com/psigabrielacastrocm/" target="_blank"><i
-                        class="fa-brands fa-instagram"></i></a></li>
-            <li><a href="https://www.linkedin.com/in/gabriela-castro-b77848226/?originalSubdomain=br" target="_blank"><i
-                        class="fa-brands fa-linkedin"></i></a></li>
+            <li><a href="https://www.instagram.com/psigabrielacastrocm/" target="_blank"><i class="fa-brands fa-instagram"></i></a></li>
+            <li><a href="https://www.linkedin.com/in/gabriela-castro-b77848226/?originalSubdomain=br" target="_blank"><i class="fa-brands fa-linkedin"></i></a></li>
         </ul>
     </nav>
 
@@ -77,14 +75,11 @@
                 <div>
                     <h1 class="fade-in-slide-up">GABRIELA<br>CASTRO</h1>
                     <h3 class="fade-in-slide-up-delay">Psicoterapia | Saúde Mental | Bem-estar</h3>
-                    <p class="fade-in-slide-up-long-delay">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed
-                        vestibulum
-                        urna id ligula consequat,
-                        eget dapibus magna fermentum. Integer id sagittis sapien, sit amet volutpat justo. Mauris sed
-                        dapibus elit.</p>
+                    <p class="fade-in-slide-up-long-delay">Ajudo jovens e adultos a viverem uma vida mais saudável e funcional, entendendo melhor seus pensamentos, emoções e comportamentos.</p>
                 </div>
             </div>
             <img src="http://localhost/gabi/public/img/gabi1.png" id="imagem-fade" alt="">
+            <img src="http://localhost/gabi/public/img/flor_decor.png" id="decor" alt="">
             <div class="fade-bottom"></div>
         </section>
 
@@ -95,30 +90,21 @@
                     <div class="row">
                         <!-- Coluna 1 -->
                         <div class="col-md-5">
-                            <img class="titulo-img fade-in-slide-up" src="http://localhost/gabi/public/img/sobre.png"
-                                alt="">
-                            <img class="caffe-img fade-in-slide-up"
-                                src="http://localhost/gabi/public/img/gabi_caffe.jpg" alt="">
+                            <img class="titulo-img fade-in-slide-up" src="http://localhost/gabi/public/img/sobre.png" alt="">
+                            <img class="caffe-img fade-in-slide-up" src="http://localhost/gabi/public/img/gabi_caffe.jpg" alt="">
                         </div>
                         <!-- Coluna 2 -->
                         <div class="col-md-7">
                             <p class="texto fade-in-slide-up">
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed vestibulum urna id ligula
-                                consequat, eget dapibus magna fermentum. Integer id sagittis sapien, sit amet volutpat
-                                justo. Mauris sed dapibus elit. Nulla nec massa vel lacus accumsan tincidunt. Cras ut
-                                nunc id neque pharetra pharetra eu eu magna. Proin vel velit eget nunc congue mattis.
+                                Gostaria primeiramente de dizer que fico feliz em vê-lo(a) disposto(a) a optar pelo autocuidado e bem-estar emocional. Embora a terapia possa ser um processo desafiador, os benefícios que ela traz são recompensadores.
                                 <br><br>
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed vestibulum urna id ligula
-                                consequat, eget dapibus magna fermentum. Integer id sagittis sapien, sit amet volutpat
-                                justo. Mauris sed dapibus elit. Nulla nec massa vel lacus accumsan tincidunt. Cras ut
-                                nunc id neque pharetra pharetra eu eu magna. Proin vel velit eget nunc congue mattis.
+                                Com mais de 2 anos de experiência, tenho ajudado adultos a encontrar equilíbrio e funcionalidade em suas vidas, oferecendo compreensão e ferramentas essenciais para uma mudança que traga melhor qualidade de vida.
                                 <br><br>
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed vestibulum urna id ligula
-                                consequat, eget dapibus magna fermentum. Integer id sagittis sapien, sit amet volutpat
-                                justo. Mauris sed dapibus elit. Nulla nec massa vel lacus accumsan tincidunt. Cras ut
-                                nunc id neque pharetra pharetra eu eu magna. Proin vel velit eget nunc congue mattis.
+                                Utilizo a abordagem da Terapia Cognitivo-Comportamental (TCC), para identificar e modificar padrões de pensamento e comportamento que causam desconforto emocional. Ajundando a lidar melhor com a ansiedade, depressão e transtornos de humor, de personalidade e alimentares.
+                                <br><br>
+                                Estou pronta para te ajudar. Agende agora mesmo uma sessão.
                             </p>
-                            <button class="btn-1 fade-in-slide-up">Agende uma consulta</button>
+                            <button class="btn-1 fade-in-slide-up">Agende uma sessão</button>
                         </div>
                     </div>
                 </div>

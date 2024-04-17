@@ -41,13 +41,25 @@
 
     <!-- Cabeçalho -->
     <header>
-        <p>Blog</p>
+        <div class="background">
+            <img src="http://localhost/gabi/public/img/banner.png" alt="Banner de fundo">
+        </div>
+        <div class="content">
+            <img src="http://localhost/gabi/public/img/logo_blog.png" alt="Gabriela Castro Psicóloga | Logo (blog)">
+            <nav>
+                <ul>
+                    <li><a href="http://localhost/gabi/">Home</a></li>
+                    <li><span></span></li>
+                    <li><a href="http://localhost/gabi/blog">Blog</a></li>
+                </ul>
+            </nav>
+        </div>
     </header>
 
     <main style="background-color:#eeeeee;">
 
         <div class="post">
-            <?php if (!empty($post)): ?>
+            <?php if (!empty($post)) : ?>
                 <!-- Verifica se o post existe -->
                 <h1 class="titulo">
                     <?php echo $post['titulo']; ?>
@@ -59,35 +71,27 @@
                     <p>Compartilhe:</p>
 
                     <!-- Ícone do Facebook -->
-                    <a class="facebook"
-                        href="https://www.facebook.com/sharer/sharer.php?u=<?php echo urlencode('URL_DO_SEU_POST_AQUI'); ?>"
-                        target="_blank">
+                    <a class="facebook" href="https://www.facebook.com/sharer/sharer.php?u=<?php echo urlencode('URL_DO_SEU_POST_AQUI'); ?>" target="_blank">
                         <i class="fab fa-facebook"></i>
                     </a>
 
                     <!-- Ícone do Twitter -->
-                    <a class="x"
-                        href="https://twitter.com/intent/tweet?url=<?php echo urlencode('URL_DO_SEU_POST_AQUI'); ?>"
-                        target="_blank">
+                    <a class="x" href="https://twitter.com/intent/tweet?url=<?php echo urlencode('URL_DO_SEU_POST_AQUI'); ?>" target="_blank">
                         <i class="fa-brands fa-x-twitter"></i>
                     </a>
 
                     <!-- Ícone do LinkedIn -->
-                    <a class="linkedin"
-                        href="https://www.linkedin.com/sharing/share-offsite/?url=<?php echo urlencode('URL_DO_SEU_POST_AQUI'); ?>"
-                        target="_blank">
+                    <a class="linkedin" href="https://www.linkedin.com/sharing/share-offsite/?url=<?php echo urlencode('URL_DO_SEU_POST_AQUI'); ?>" target="_blank">
                         <i class="fab fa-linkedin"></i>
                     </a>
 
                     <!-- Ícone do WhatsApp -->
-                    <a class="whatsapp" href="whatsapp://send?text=<?php echo urlencode('URL_DO_SEU_POST_AQUI'); ?>"
-                        target="_blank">
+                    <a class="whatsapp" href="whatsapp://send?text=<?php echo urlencode('URL_DO_SEU_POST_AQUI'); ?>" target="_blank">
                         <i class="fab fa-whatsapp"></i>
                     </a>
 
                     <!-- Ícone do Telegram -->
-                    <a class="telegram" href="https://t.me/share/url?url=<?php echo urlencode('URL_DO_SEU_POST_AQUI'); ?>"
-                        target="_blank">
+                    <a class="telegram" href="https://t.me/share/url?url=<?php echo urlencode('URL_DO_SEU_POST_AQUI'); ?>" target="_blank">
                         <i class="fab fa-telegram"></i>
                     </a>
 
@@ -109,12 +113,25 @@
                         </div>
                     </div>
 
-                    <button id="audio-toggle" class="btn btn-primary">Ativar/Desativar Leitura de Áudio</button>
-                    <audio id="audio-player" controls style="display: none;"></audio>
+                    <!-- Componente de leitura em áudio -->
+                    <div id="audio-component">
+                        <!-- Botão de ativar/desativar a leitura em áudio -->
+                        <button id="audio-toggle" class="btn btn-primary">
+                            <i class="fas fa-volume-up"></i> Ouvir
+                        </button>
+                        <!-- Botão de play/pause -->
+                        <button id="play-pause-button" class="btn btn-primary">
+                            <i id="play-pause-icon" class="fas fa-play"></i>
+                        </button>
+                        <!-- Áudio -->
+                        <audio id="audio-player" controls style="display: none;">
+                            Seu navegador não suporta a reprodução de áudio.
+                        </audio>
+                    </div>
 
                 </div>
 
-                <?php if (!empty($post['url_capa'])): ?>
+                <?php if (!empty($post['url_capa'])) : ?>
                     <!-- Verifica se a capa do post existe -->
                     <img src="<?php echo $post['url_capa']; ?>" alt="Capa do Post">
                     <!-- Exibe a capa do post -->
@@ -130,41 +147,33 @@
                     <p>Compartilhe:</p>
 
                     <!-- Ícone do Facebook -->
-                    <a class="facebook"
-                        href="https://www.facebook.com/sharer/sharer.php?u=<?php echo urlencode('URL_DO_SEU_POST_AQUI'); ?>"
-                        target="_blank">
+                    <a class="facebook" href="https://www.facebook.com/sharer/sharer.php?u=<?php echo urlencode('URL_DO_SEU_POST_AQUI'); ?>" target="_blank">
                         <i class="fab fa-facebook"></i>
                     </a>
 
                     <!-- Ícone do Twitter -->
-                    <a class="x"
-                        href="https://twitter.com/intent/tweet?url=<?php echo urlencode('URL_DO_SEU_POST_AQUI'); ?>"
-                        target="_blank">
+                    <a class="x" href="https://twitter.com/intent/tweet?url=<?php echo urlencode('URL_DO_SEU_POST_AQUI'); ?>" target="_blank">
                         <i class="fa-brands fa-x-twitter"></i>
                     </a>
 
                     <!-- Ícone do LinkedIn -->
-                    <a class="linkedin"
-                        href="https://www.linkedin.com/sharing/share-offsite/?url=<?php echo urlencode('URL_DO_SEU_POST_AQUI'); ?>"
-                        target="_blank">
+                    <a class="linkedin" href="https://www.linkedin.com/sharing/share-offsite/?url=<?php echo urlencode('URL_DO_SEU_POST_AQUI'); ?>" target="_blank">
                         <i class="fab fa-linkedin"></i>
                     </a>
 
                     <!-- Ícone do WhatsApp -->
-                    <a class="whatsapp" href="whatsapp://send?text=<?php echo urlencode('URL_DO_SEU_POST_AQUI'); ?>"
-                        target="_blank">
+                    <a class="whatsapp" href="whatsapp://send?text=<?php echo urlencode('URL_DO_SEU_POST_AQUI'); ?>" target="_blank">
                         <i class="fab fa-whatsapp"></i>
                     </a>
 
                     <!-- Ícone do Telegram -->
-                    <a class="telegram" href="https://t.me/share/url?url=<?php echo urlencode('URL_DO_SEU_POST_AQUI'); ?>"
-                        target="_blank">
+                    <a class="telegram" href="https://t.me/share/url?url=<?php echo urlencode('URL_DO_SEU_POST_AQUI'); ?>" target="_blank">
                         <i class="fab fa-telegram"></i>
                     </a>
 
                 </div>
 
-            <?php else: ?>
+            <?php else : ?>
                 <p>Post não encontrado.</p>
                 <!-- Exibe uma mensagem se o post não for encontrado -->
             <?php endif; ?>
@@ -184,25 +193,50 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
 
     <script>
-        $(document).ready(function () {
-            var audioToggle = $("#audio-toggle");
-            var audioPlayer = $("#audio-player");
-            var titulo = $(".titulo").text();
-            var conteudo = $(".conteudo").text();
+        document.addEventListener("DOMContentLoaded", function() {
+            var audioToggle = document.getElementById("audio-toggle");
+            var playPauseButton = document.getElementById("play-pause-button");
+            var playPauseIcon = document.getElementById("play-pause-icon");
+            var audioPlayer = document.getElementById("audio-player");
+            var isPlaying = false;
 
-            // Função para gerar áudio a partir do texto
-            function gerarAudio(texto) {
-                var utterance = new SpeechSynthesisUtterance(texto);
-                window.speechSynthesis.speak(utterance);
+            // Função para iniciar ou parar a leitura em áudio
+            function toggleAudio() {
+                var titulo = document.querySelector('.titulo').innerText; // Extrai o texto do elemento com a classe .titulo
+                var conteudo = document.querySelector('.conteudo').innerText; // Extrai o texto do elemento com a classe .conteudo
+                var texto = titulo + ' ' + conteudo; // Concatena o texto do título e do conteúdo
+                var utterance = new SpeechSynthesisUtterance(texto); // Cria um objeto SpeechSynthesisUtterance com o texto
+                window.speechSynthesis.cancel(); // Cancela qualquer leitura de áudio em andamento
+                window.speechSynthesis.speak(utterance); // Reproduz o áudio
             }
 
-            // Evento de clique para ativar/desativar a leitura de áudio
-            audioToggle.on("click", function () {
-                if (audioPlayer.prop("paused")) {
-                    gerarAudio(titulo); // Lê o título do post em áudio
-                    gerarAudio(conteudo); // Lê o conteúdo do post em áudio
+            // Evento de clique no botão de ativar/desativar a leitura em áudio
+            audioToggle.addEventListener("click", function() {
+                if (!isPlaying) {
+                    toggleAudio(); // Inicia a leitura em áudio
+                    isPlaying = true;
+                    playPauseIcon.classList.remove("fa-play");
+                    playPauseIcon.classList.add("fa-pause");
                 } else {
-                    window.speechSynthesis.cancel(); // Cancela a leitura de áudio
+                    window.speechSynthesis.cancel(); // Interrompe a leitura em áudio
+                    isPlaying = false;
+                    playPauseIcon.classList.remove("fa-pause");
+                    playPauseIcon.classList.add("fa-play");
+                }
+            });
+
+            // Evento de clique no botão de play/pause
+            playPauseButton.addEventListener("click", function() {
+                if (isPlaying) {
+                    window.speechSynthesis.cancel(); // Interrompe a leitura em áudio
+                    isPlaying = false;
+                    playPauseIcon.classList.remove("fa-pause");
+                    playPauseIcon.classList.add("fa-play");
+                } else {
+                    toggleAudio(); // Inicia a leitura em áudio
+                    isPlaying = true;
+                    playPauseIcon.classList.remove("fa-play");
+                    playPauseIcon.classList.add("fa-pause");
                 }
             });
         });

@@ -41,7 +41,19 @@
 
     <!-- Cabeçalho -->
     <header>
-        <p>Blog</p>
+        <div class="background">
+            <img src="http://localhost/gabi/public/img/banner.png" alt="Banner de fundo">
+        </div>
+        <div class="content">
+            <img src="http://localhost/gabi/public/img/logo_blog.png" alt="Gabriela Castro Psicóloga | Logo (blog)">
+            <nav>
+                <ul>
+                    <li><a href="http://localhost/gabi/">Home</a></li>
+                    <li><span></span></li>
+                    <li><a href="http://localhost/gabi/blog">Blog</a></li>
+                </ul>
+            </nav>
+        </div>
     </header>
 
     <main>
