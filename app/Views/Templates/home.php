@@ -26,7 +26,7 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
     <!-- Font awesome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" />
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;700&display=swap" rel="stylesheet">
 
     <!-- Scripts (head) -->
@@ -42,14 +42,14 @@
     <!-- Cabeçalho -->
     <header>
 
-        <span class="crp">
-            CRP 19/4873
-        </span>
+        <div class="logo">
+            <img src="http://localhost/gabi/public/img/logo2.png" alt="">
+        </div>
 
         <nav>
             <ul>
-                <li>Sobre Mim</li>
-                <li>Agendar Horário</li>
+                <li><a href="#sobre">Sobre Mim</a></li>
+                <li><a href="https://api.whatsapp.com/send/?phone=5579981026492&text&type=phone_number&app_absent=0" target="_blank">Agendar Horário</a></li>
                 <li><a href="http://localhost/gabi/blog">Blog</a></li>
             </ul>
         </nav>
@@ -84,37 +84,57 @@
         </section>
 
         <!-- Sobre -->
-        <section class="sobre">
+        <section class="sobre" id="sobre">
             <div class="sobre-mim">
+                <h1>Sobre mim</h1>
+                <div class="content">
+                    <img class="caffe-img" src="http://localhost/gabi/public/img/gabi_caffe.jpg" alt="">
+                    <p class="texto fade-in-slide-up">
+                        Gostaria primeiramente de dizer que fico feliz em vê-lo(a) disposto(a) a optar pelo autocuidado e bem-estar emocional. Embora a terapia possa ser um processo desafiador, os benefícios que ela traz são recompensadores.
+                        <br><br>
+                        Com mais de 3 anos de experiência, tenho ajudado jovens e adultos a encontrarem equilíbrio e funcionalidade em suas vidas, oferecendo compreensão e ferramentas essenciais para uma mudança que traga uma melhor qualidade de vida.
+                        <br><br>
+                        Utilizo como abordagem a Terapia Cognitivo-Comportamental (TCC), que permite identificar e modificar padrões de pensamento e comportamento que causam desconforto emocional. Ajundando o paciente a lidar melhor com a ansiedade, depressão, assim como transtornos alimentares, de personalidade e de humor.
+                        <br><br>
+                        Estou pronta para te ajudar. Agende agora mesmo uma sessão ou entre em contato para mais informações.
+                        <a class="fade-in-slide-up" style="margin:auto; margin-top: 50px; display: block; width:fit-content;" href="https://api.whatsapp.com/send/?phone=5579981026492&text&type=phone_number&app_absent=0" target="_blank"><button class="btn-1">Agende uma sessão</button></a>
+                    </p>
+                </div>
+            </div>
+
+            <!-- Vantagens da Terapia Online -->
+            <div class="terapia-online">
                 <div class="container">
                     <div class="row">
-                        <!-- Coluna 1 -->
-                        <div class="col-md-5">
-                            <img class="titulo-img fade-in-slide-up" src="http://localhost/gabi/public/img/sobre.png" alt="">
-                            <img class="caffe-img fade-in-slide-up" src="http://localhost/gabi/public/img/gabi_caffe.jpg" alt="">
+                        <div class="col-md-4 fade-in-slide-up">
+                            <i class="fa-solid fa-clock"></i>
+                            <h4>Evite dor de cabeça</h4>
+                            <div class="card">
+                                <span>Evite longos deslocamentos, engarrafamentos e gastos com transporte. Faça a sua terapia no conforto da sua casa.</span>
+                            </div>
                         </div>
-                        <!-- Coluna 2 -->
-                        <div class="col-md-7">
-                            <p class="texto fade-in-slide-up">
-                                Gostaria primeiramente de dizer que fico feliz em vê-lo(a) disposto(a) a optar pelo autocuidado e bem-estar emocional. Embora a terapia possa ser um processo desafiador, os benefícios que ela traz são recompensadores.
-                                <br><br>
-                                Com mais de 2 anos de experiência, tenho ajudado adultos a encontrar equilíbrio e funcionalidade em suas vidas, oferecendo compreensão e ferramentas essenciais para uma mudança que traga melhor qualidade de vida.
-                                <br><br>
-                                Utilizo a abordagem da Terapia Cognitivo-Comportamental (TCC), para identificar e modificar padrões de pensamento e comportamento que causam desconforto emocional. Ajundando a lidar melhor com a ansiedade, depressão e transtornos de humor, de personalidade e alimentares.
-                                <br><br>
-                                Estou pronta para te ajudar. Agende agora mesmo uma sessão.
-                            </p>
-                            <button class="btn-1 fade-in-slide-up">Agende uma sessão</button>
+                        <div class="col-md-4 fade-in-slide-up">
+                            <i class="fa-solid fa-circle-check"></i>
+                            <h4>Eficiente</h4>
+                            <div class="card">
+                                <span>A terapia online é comprovadamente tão eficiente quanto a terapia presencial para o tratamento da maioria das demandas.</span>
+                            </div>
+                        </div>
+                        <div class="col-md-4 fade-in-slide-up">
+                            <i class="fa-solid fa-globe"></i>
+                            <h4>De onde você estiver</h4>
+                            <div class="card">
+                                <span>A terapia online te permite ter acesso as sessões de qualquer lugar com conexão à internet.</span>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
+
             <div class="formacao">
                 <img class="titulo-img fade-in-slide-up" src="http://localhost/gabi/public/img/formacao.png" alt="">
                 <div class="texto">
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed vestibulum urna id ligula
-                        consequat, eget dapibus magna fermentum. Integer id sagittis sapien, sit amet volutpat
-                        justo. Mauris sed dapibus elit.</p>
+                    <p>Após a graduação em Psicologia, continuei ampliando meus conhecimentos através de cursos especializados e experiências na área, aprimorando minhas habilidades no manejo da ansiedade, depressão, transtornos alimentares, de personalidade e de humor.</p>
                     <h3>Especialização</h3>
                     <ul>
                         <li>
@@ -138,15 +158,82 @@
             </div>
         </section>
 
-        <!-- Tratamentos -->
-        <section class="tratamentos">
+        <!-- FAQ -->
+        <section class="FAQ" id="faq">
+            <div class="container fade-in-element">
+                <h1>Dúvidas frequentes</h1>
+                <ul id="lista-perguntas" class="accordion-1">
+                    <div class="pergunta">
+                        <li>
+                            <div class="pergunta-header">
+                                <p>A terapia é confidencial?</p>
+                                <svg width="15" height="10" viewBox="0 0 42 25">
+                                    <path d="M3 3L21 21L39 3" stroke="var(--branco)" stroke-width="7" stroke-linecap="round">
+                                    </path>
+                                </svg>
+                            </div>
+                            <div class="resposta">
+                                <p>Sim, confidencialidade é fundamental em minha prática. Suas informações são tratadas
+                                    com o mais alto grau de privacidade e profissionalismo.</p><br>
+                            </div>
+                        </li>
 
-        </section>
-
-        <!-- Agendamento de consulta e contato -->
-        <section class="agendamento">
-            <img class="titulo-img fade-in-slide-up" src="http://localhost/gabi/public/img/agendar.png" alt="">
-            <button class="btn-1 fade-in-slide-up" style="margin-top: 60px;">Agende agora</button>
+                    </div>
+                    <div class="pergunta">
+                        <li>
+                            <div class="pergunta-header">
+                                <p>Qual a duração típica de uma sessão?</p>
+                                <svg width="15" height="10" viewBox="0 0 42 25">
+                                    <path d="M3 3L21 21L39 3" stroke="var(--branco)" stroke-width="7" stroke-linecap="round">
+                                    </path>
+                                </svg>
+                            </div>
+                            <div class="resposta">
+                                <p>As sessões geralmente têm duração entre 50 (cinquenta) minutos e 1 (uma) hora, mas
+                                    isso pode variar a depender das necessidades individuais. Trabalhamos juntos para
+                                    garantir que cada sessão seja produtiva e significativa.</p>
+                                <br>
+                            </div>
+                        </li>
+                    </div>
+                    <div class="pergunta">
+                        <li>
+                            <div class="pergunta-header">
+                                <p>Como sei se a terapia é adequada para mim?</p>
+                                <svg width="15" height="10" viewBox="0 0 42 25">
+                                    <path d="M3 3L21 21L39 3" stroke="var(--branco)" stroke-width="7" stroke-linecap="round">
+                                    </path>
+                                </svg>
+                            </div>
+                            <div class="resposta">
+                                <p>A terapia é uma ferramenta poderosa para qualquer pessoa que busque crescimento
+                                    pessoal, enfrentamento de desafios emocionais ou melhoria nos relacionamentos. Se
+                                    você está enfrentando dúvidas, estou aqui para ajudar a explorar se a terapia é a
+                                    escolha certa para você.</p>
+                                <br>
+                            </div>
+                        </li>
+                    </div>
+                    <div class="pergunta">
+                        <li>
+                            <div class="pergunta-header">
+                                <p>Como são realizadas as sessões online?</p>
+                                <svg width="15" height="10" viewBox="0 0 42 25">
+                                    <path d="M3 3L21 21L39 3" stroke="var(--branco)" stroke-width="7" stroke-linecap="round">
+                                    </path>
+                                </svg>
+                            </div>
+                            <div class="resposta">
+                                <p>As sessões online são realizadas por meio de plataformas seguras de videochamada.
+                                    Ofereço o mesmo nível de suporte e confidencialidade que em sessões presenciais,
+                                    garantindo uma experiência confortável e eficaz.
+                                </p>
+                                <br>
+                            </div>
+                        </li>
+                    </div>
+                </ul>
+            </div>
         </section>
 
     </main>
@@ -154,17 +241,26 @@
     <!-- Rodapé -->
     <footer>
         <div class="copyright">
-            &copy; 2024, Desenvolvido por <a href="https://www.instagram.com/simplifyweb/" target="_blank">Simplify
+            &copy; Gabriela Castro 2024, Desenvolvido por <a href="https://www.instagram.com/simplifyweb/" target="_blank">Simplify
                 Web</a>
         </div>
     </footer>
 
-    <a href="https://api.whatsapp.com/send?phone=5579981026492" class="whatsapp-button" target="_blank">
-        <i class="fa-brands fa-whatsapp"></i>
-    </a>
+    <div class="message-box">
+        <span class="texto">Fale comigo<span class="close">x</span></span>
+    </div>
+
+    <div class="whatsapp-box">
+        <a href="https://api.whatsapp.com/send/?phone=5579981026492&text&type=phone_number&app_absent=0" class="whatsapp-button" target="_blank">
+            <i class="fa-brands fa-whatsapp"></i>
+            <span>Contato</span>
+        </a>
+    </div>
 
     <!-- Bootstrap JavaScript -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- JQuery -->
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
     <!-- js files (body) -->
     <?php
     foreach ($scripts_body as $script) {

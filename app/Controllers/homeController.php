@@ -12,8 +12,8 @@ Class homeController extends Controller {
         $data['title'] = 'Gabriela Castro | Psicóloga';
         $data['description'] = '';
         $data['styles'] = array('');
-        $data['scripts_head'] = array('');
-        $data['scripts_body'] = array('scroll-invisible', 'fade-img', 'fade-in-slide-up');
+        $data['scripts_head'] = array('accordion-pre-set');
+        $data['scripts_body'] = array('message-button', 'scroll-invisible', 'scroll-to-section' ,'fade-img', 'fade-in-slide-up', 'accordion');
 
         //load view
         $this->loadTemplates($template, $data);
