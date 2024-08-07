@@ -1,8 +1,10 @@
 <?php
 
-Class blogController extends Controller {
+class blogController extends Controller
+{
 
-    public function index($pagina=1) {
+    public function index($pagina = 1)
+    {
         // Instancie o modelo Posts
         $posts_model = new Posts();
 
@@ -29,19 +31,20 @@ Class blogController extends Controller {
         $this->loadTemplates($template, $data);
     }
 
-    public function post($id) {
+    public function post($id)
+    {
         // Instancie o modelo Posts
         $posts_model = new Posts();
-    
+
         // Chame o método getPost para obter o post pelo ID
         $post = $posts_model->getPost($id);
-    
+
         // Verifica se o post foi encontrado
         if ($post) {
-            
+
             //set template
             $template = 'post';
-    
+
             //set page data
             $data['view'] = '';
             $data['title'] = $post['titulo'] . ' | Gabriela Castro Psicóloga';
@@ -49,10 +52,13 @@ Class blogController extends Controller {
             $data['styles'] = array('blog');
             $data['scripts_head'] = array('');
             $data['scripts_body'] = array('scroll-invisible', 'fade-img', 'fade-in-slide-up');
-    
+
             // Adicione o post recuperado aos dados da página
             $data['post'] = $post;
-    
+
+            // Adicione o caminho do arquivo de conteúdo HTML aos dados da página
+            $data['conteudo_html'] = "./posts/post{$id}.html";
+
             //load view
             $this->loadTemplates($template, $data);
         } else {
@@ -61,6 +67,5 @@ Class blogController extends Controller {
             // header("Location: URL_DE_REDIRECIONAMENTO");
             echo "Post não encontrado.";
         }
-    }    
-
+    }
 }

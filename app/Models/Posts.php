@@ -4,49 +4,26 @@ require_once 'Conexao.php';
 
 class Posts
 {
-
     private $con;
 
     public function __construct()
     {
-
         $this->con = Conexao::getConexao();
-
     }
 
-    public function salvarPost($titulo, $conteudo, $imagens, $url_capa)
+    public function salvarPost($titulo, $url_capa)
     {
-        // Verifica se o título, o conteúdo e a URL da capa não estão vazios
-        if (!empty($titulo) && !empty($conteudo) && !empty($url_capa)) {
+        // Verifica se o título e a URL da capa não estão vazios
+        if (!empty($titulo) && !empty($url_capa)) {
             // Prepara a consulta SQL para inserir o post
-            $stmt = $this->con->prepare("INSERT INTO posts (titulo, conteudo, url_capa) VALUES (?, ?, ?)");
+            $stmt = $this->con->prepare("INSERT INTO posts (titulo, url_capa) VALUES (?, ?)");
             $stmt->bindParam(1, $titulo);
-            $stmt->bindParam(2, $conteudo);
-            $stmt->bindParam(3, $url_capa);
+            $stmt->bindParam(2, $url_capa);
 
             // Executa a consulta para inserir o post
             if ($stmt->execute()) {
-                // Obtém o ID do post recém-inserido
-                $post_id = $this->con->lastInsertId();
-
-                // Itera sobre as imagens encontradas e faz upload delas
-                foreach ($imagens as $imagem) {
-                    // Obtém o novo nome do arquivo
-                    $novo_nome_arquivo = formatarNomeArquivo($imagem, $titulo);
-
-                    // Define o caminho de destino para fazer upload (./uploads/nome_do_arquivo-nome_do_post.extensao)
-                    $caminho_destino = "./uploads/" . $novo_nome_arquivo;
-
-                    // Faz o download da imagem e salva no destino
-                    file_put_contents($caminho_destino, file_get_contents($imagem));
-
-                    // Insere a URL da imagem no banco de dados associada ao post ID
-                    $stmtImagens = $this->con->prepare("INSERT INTO imagens (post_id, url) VALUES (?, ?)");
-                    $stmtImagens->bindParam(1, $post_id);
-                    $stmtImagens->bindParam(2, $caminho_destino);
-                    $stmtImagens->execute();
-                }
-                return true;
+                // Retorna o ID do post recém-inserido
+                return $this->con->lastInsertId();
             } else {
                 return false;
             }
@@ -81,6 +58,4 @@ class Posts
         // Retorna o resultado da consulta
         return $stmt->fetch(PDO::FETCH_ASSOC);
     }
-
-
 }

@@ -41,7 +41,6 @@ class editorController extends Controller
             if (!empty($_POST["titulo"]) && !empty($_POST["conteudo"]) && isset($_FILES['capa']) && $_FILES['capa']['error'] === UPLOAD_ERR_OK) {
                 // Sanitize dos dados recebidos
                 $titulo = htmlspecialchars($_POST["titulo"]);
-                // Use HTML Purifier para limpar o conteúdo HTML
                 $conteudo = htmlspecialchars($_POST["conteudo"]);
 
                 // Caminho temporário do arquivo
@@ -58,21 +57,46 @@ class editorController extends Controller
                 preg_match_all('/<img[^>]+src="([^">]+)"/', $conteudo, $matches);
                 $imagens = $matches[1]; // Obtém todas as URLs das imagens
 
+                // Itera sobre as imagens encontradas e faz upload delas
+                foreach ($imagens as $imagem) {
+                    // Obtém o novo nome do arquivo
+                    $novo_nome_arquivo = formatarNomeArquivo($imagem, $titulo);
+
+                    // Define o caminho de destino para fazer upload (./uploads/nome_do_arquivo-nome_do_post.extensao)
+                    $caminho_destino = "./uploads/" . $novo_nome_arquivo;
+
+                    // Faz o download da imagem e salva no destino
+                    file_put_contents($caminho_destino, file_get_contents($imagem));
+                }
+
                 // Instancia o modelo Posts
                 $posts_model = new Posts();
 
-                // Chama o método salvarPost do modelo para salvar o post e suas imagens
-                if ($posts_model->salvarPost($titulo, $conteudo, $imagens, $url_capa)) {
-                    // Redireciona de volta para index.php após a inserção
-                    header("Location: http://localhost/gabi/editor");
-                    exit();
+                // Chama o método salvarPost do modelo para salvar o título no banco de dados e obter o ID
+                $post_id = $posts_model->salvarPost($titulo, $url_capa);
+
+                // Chama o método salvarPost do modelo para salvar o título no banco de dados
+                if ($post_id) {
+                    // Define o nome do arquivo referente ao conteúdo do post com base no ID
+                    $file_name = 'post' . $post_id . '.html';
+
+                    // Caminho completo para salvar o arquivo
+                    $file_path = './posts/' . $file_name;
+
+                    // Salva o conteúdo no arquivo
+                    if (file_put_contents($file_path, htmlspecialchars_decode($conteudo))) {
+                        // Redireciona de volta para index.php após a inserção
+                        header("Location: http://localhost/gabi/editor");
+                        exit();
+                    } else {
+                        echo "Erro ao salvar o conteúdo do Post.";
+                    }
                 } else {
-                    echo "Erro ao inserir o post no banco de dados.";
+                    echo "Erro ao salvar o título no banco de dados.";
                 }
             } else {
-                echo "Certifique-se de preencher todos os campos obrigatórios.";
+                echo "Título, conteúdo ou capa não foram enviados corretamente.";
             }
         }
     }
-
 }

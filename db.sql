@@ -2,7 +2,7 @@ USE gabi;
 
 DROP TABLE posts;
 
-DROP TABLE imagens;
+DROP TABLE tags;
 
 select *from posts;
 
@@ -10,7 +10,6 @@ select *from posts;
 CREATE TABLE posts (
     id INT AUTO_INCREMENT PRIMARY KEY,
     titulo VARCHAR(255) NOT NULL,
-    conteudo TEXT NOT NULL,
     data_publicacao TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     url_capa VARCHAR(255)
 ) DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
@@ -28,12 +27,4 @@ CREATE TABLE posts_tags (
     FOREIGN KEY (post_id) REFERENCES posts(id),
     FOREIGN KEY (tag_id) REFERENCES tags(id),
     PRIMARY KEY (post_id, tag_id)
-) DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
-
--- Tabela para armazenar as URLs das imagens associadas aos posts
-CREATE TABLE imagens (
-    id INT AUTO_INCREMENT PRIMARY KEY,
-    url VARCHAR(255) NOT NULL,
-    post_id INT NOT NULL,
-    FOREIGN KEY (post_id) REFERENCES posts(id)
 ) DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;

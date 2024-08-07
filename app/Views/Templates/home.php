@@ -73,14 +73,16 @@
         <section class="apresentacao-principal">
             <div class="texto">
                 <div>
+                    <div id="imagem-fade">
+                        <img src="http://localhost/gabi/public/img/gabi1.png" alt="">
+                        <div class="fade-bottom"></div>
+                    </div>
                     <h1 class="fade-in-slide-up">GABRIELA<br>CASTRO</h1>
                     <h3 class="fade-in-slide-up-delay">Psicoterapia | Saúde Mental | Bem-estar</h3>
                     <p class="fade-in-slide-up-long-delay">Ajudo jovens e adultos a viverem uma vida mais saudável e funcional, entendendo melhor seus pensamentos, emoções e comportamentos.</p>
                 </div>
             </div>
-            <img src="http://localhost/gabi/public/img/gabi1.png" id="imagem-fade" alt="">
             <img src="http://localhost/gabi/public/img/flor_decor.png" id="decor" alt="">
-            <div class="fade-bottom"></div>
         </section>
 
         <!-- Sobre -->
@@ -140,6 +142,10 @@
                         <li>
                             <h5>Graduação</h5>
                             <span>UNIT - Universidade Tiradentes - 2022</span>
+                        </li>
+                        <li>
+                            <h5>Pós-graduanda em Neuropsicologia</h5>
+                            <span>UNIT - Universidade Tiradentes</span>
                         </li>
                         <li>
                             <h5>Formação em Terapia Cognitivo-Comportamental</h5>

@@ -225,6 +225,8 @@ nav li:hover i {
     z-index: -1;
 }
 
+section {overflow: hidden;}
+
 .apresentacao-principal {
     padding: 140px 100px;
     padding-bottom: 0;
@@ -258,15 +260,15 @@ nav li:hover i {
     color: var(--light-grey);
 }
 
-.apresentacao-principal img {
+#imagem-fade {
     position: absolute;
+    bottom: 0;
+    left: 800px;
+    transition: opacity 0.2s;
 }
 
-#imagem-fade {
-    bottom: 0;
-    right: 140px;
+#imagem-fade img {
     height: 90vh;
-    transition: opacity 0.2s;
 }
 
 #decor {
@@ -281,7 +283,7 @@ nav li:hover i {
 }
 
 .sobre-mim {
-    padding: 150px;
+    padding: 120px 12%;
     padding-bottom: 180px;
     min-height: 100vh;
     background-color: var(--bege-escuro);
@@ -316,6 +318,7 @@ nav li:hover i {
 }
 
 .terapia-online {
+    padding: 0 12%;
     padding-bottom: 180px;
     background-color: var(--bege-escuro);
     font-family: "Fraunces", serif;
@@ -348,8 +351,9 @@ nav li:hover i {
 .terapia-online .card span {font-size: 17px; text-align: center; color: var(--light-grey);}
 
 .formacao {
-    padding: 80px;
+    padding: 80px 12%;
     min-height: 100vh;
+    max-height: 1050px;
     background: rgba(0, 0, 0, 0.5);
 }
 
@@ -393,7 +397,7 @@ nav li:hover i {
 
 .FAQ {
     background-color: var(--bege-escuro);
-    padding: 120px 0;
+    padding: 120px 8%;
     width: 100%;
     display: flex;
     justify-content: center;
@@ -458,10 +462,6 @@ svg {
     margin-top: 10px;
     fill: transparent;
     transition: transform 1s ease-in;
-}
-
-.accordion-1 {
-    width: 300px;
 }
 
 @keyframes fade {
@@ -642,10 +642,201 @@ svg {
     .accordion-1 {
         width: 100%;
     }
+
 }
 
 @media (min-width: 500px) {
     .accordion-1 {
         width: 100%;
     }
+
+}
+
+@media (max-width: 1100px) {
+
+    .apresentacao-principal h1 {
+        font-size: 100px;
+    }
+
+    .apresentacao-principal h3 {
+        font-size: 25px;
+    }
+
+    .apresentacao-principal p {
+        max-width: 500px;
+        font-size: 18px;
+    }
+
+    #imagem-fade {
+        left: 700px;
+    }
+}
+
+@media (max-width: 1024px) {
+
+    .logo {
+        top: 15px;
+        left: 15px;
+        width: 85px;
+    }
+
+    .apresentacao-principal .texto {
+        margin-left: 30px;
+    }
+
+    .apresentacao-principal h1 {
+        font-size: 95px;
+        margin-bottom: 30px;
+    }
+
+    .apresentacao-principal h3 {
+        font-size: 24px;
+        margin-bottom: 15px;
+    }
+
+    .apresentacao-principal p {
+        max-width: 480px;
+        font-size: 18px;
+    }
+
+    #imagem-fade {
+        left: 630px;
+    }
+
+    .sobre-mim .content {
+        display: block;
+    }
+
+    .terapia-online .card {
+        height: 250px;
+    }
+
+    .terapia-online .card span {
+        font-size: 15px;
+    }
+}
+
+@media (max-width: 768px) {
+
+    .formacao .titulo-img {
+        height: 100px;
+    }
+
+    .formacao .texto p {
+        font-size: 20px;
+        max-width: 500px;
+    }
+}
+
+@media (max-width: 500px) {
+
+    .formacao {
+        padding: 80px 8%;
+    }
+}
+
+@media (min-width: 768px) and (min-height: 1000px) {
+
+    .logo {
+        top: 20px;
+        left: 20px;
+        width: 115px;
+    }
+
+    .apresentacao-principal .texto {
+        text-align: center;
+        padding-top: 60px;
+        margin: auto;
+        width: fit-content;
+    }
+
+    .apresentacao-principal h1 {
+        font-size: 80px;
+    }
+
+    .apresentacao-principal h3 {
+        font-size: 25px;
+    }
+
+    .apresentacao-principal p {
+        max-width: 500px;
+        font-size: 18px;
+    }
+
+    #imagem-fade {
+        position: relative;
+        width: fit-content;
+        margin: auto;
+        margin-bottom: 20px;
+        left: unset;
+        bottom: unset;
+    }
+
+    #imagem-fade img {
+        height: 530px;
+    }
+
+    .redes-sociais ul li i {
+        font-size: 26px;
+    }
+
+}
+
+@media (min-width: 768px) and (max-height: 1200px) and (max-width: 1000px) {
+
+    .terapia-online .row {
+        display: block;
+    }
+
+    .terapia-online .col-md-4 {
+        width: 100%;
+    }
+
+    .terapia-online .card {
+        height: 150px;
+    }
+
+}
+
+@media (min-width: 1024px) and (min-height: 1366px) {
+
+    header {
+        height: 120px;
+    }
+
+    .logo {
+        top: 20px;
+        left: 20px;
+        width: 145px;
+    }
+
+    header nav ul li {
+        font-size: 26px;
+    }
+
+    .apresentacao-principal .texto {
+        padding-top: 150px;
+    }
+
+    .apresentacao-principal h1 {
+        font-size: 110px;
+    }
+
+    .apresentacao-principal h3 {
+        font-size: 32px;
+    }
+
+    .apresentacao-principal p {
+        max-width: 700px;
+        font-size: 24px;
+    }
+
+    #imagem-fade img {
+        height: 700px;
+    }
+
+    .redes-sociais ul li i {
+        font-size: 30px;
+    }
+
 }
