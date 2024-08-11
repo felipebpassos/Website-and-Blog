@@ -42,6 +42,9 @@ class blogController extends Controller
         // Verifica se o post foi encontrado
         if ($post) {
 
+            // Chame o método getTagsPost para obter as tags associadas ao post
+            $tags = $posts_model->getTagsPost($id);
+
             //set template
             $template = 'post';
 
@@ -58,6 +61,9 @@ class blogController extends Controller
 
             // Adicione o caminho do arquivo de conteúdo HTML aos dados da página
             $data['conteudo_html'] = "./posts/post{$id}.html";
+
+            // Adicione as tags recuperadas aos dados da página
+            $data['tags'] = !empty($tags) ? $tags : [];
 
             //load view
             $this->loadTemplates($template, $data);

@@ -4,7 +4,7 @@ DROP TABLE posts;
 
 DROP TABLE tags;
 
-select *from posts;
+select *from tags;
 
 -- Tabela para armazenar os posts
 CREATE TABLE posts (
@@ -17,7 +17,7 @@ CREATE TABLE posts (
 -- Tabela para armazenar as tags
 CREATE TABLE tags (
     id INT AUTO_INCREMENT PRIMARY KEY,
-    nome VARCHAR(100) NOT NULL
+    nome VARCHAR(50) NOT NULL
 ) DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 -- Tabela associativa entre posts e tags

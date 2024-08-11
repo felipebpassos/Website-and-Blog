@@ -2,22 +2,21 @@
 <html lang="pt-BR">
 
 <head>
-
     <!-- Definições default -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <!-- ... meta tags, título e icone ... -->
     <?php echo isset($description) && !empty($description) ? '<meta name="description" content="' . $description . '">' : ''; ?>
-    <title>
-        <?php echo $title; ?>
-    </title>
+    <title><?php echo $title; ?></title>
     <link rel="icon" href="http://localhost/gabi/public/img/logo2-ico.ico">
 
     <!-- ... estilos ... -->
     <?php
-    foreach ($styles as $style) {
-        echo '<link rel="stylesheet" href="http://localhost/gabi/public/styles/' . $style . '.css">' . PHP_EOL;
+    if (isset($styles) && is_array($styles)) {
+        foreach ($styles as $style) {
+            echo '<link rel="stylesheet" href="http://localhost/gabi/public/styles/' . $style . '.css">' . PHP_EOL;
+        }
     }
     ?>
 
@@ -26,11 +25,15 @@
     <!-- Font awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <!-- Tagify CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@yaireo/tagify/dist/tagify.css">
 
     <!-- Scripts (head) -->
     <?php
-    foreach ($scripts_head as $script) {
-        echo '<script src="http://localhost/gabi/public/script/' . $script . '.js"></script>';
+    if (isset($scripts_head) && is_array($scripts_head)) {
+        foreach ($scripts_head as $script) {
+            echo '<script src="http://localhost/gabi/public/script/' . $script . '.js"></script>';
+        }
     }
     ?>
     <script src="http://localhost/gabi/ckeditor5/ckeditor.js"></script>
@@ -58,6 +61,10 @@
                 <input type="file" id="capa" name="capa" class="form-control" required>
             </div>
             <div class="mb-3">
+                <label for="tags" class="form-label">Tags:</label>
+                <input type="text" id="tags" name="tags" class="form-control">
+            </div>
+            <div class="mb-3">
                 <label for="editor" class="form-label">Conteúdo:</label>
                 <textarea id="editor" name="conteudo" class="form-control" rows="10"></textarea>
                 <input type="hidden" id="imageUrls" name="imageUrls">
@@ -82,11 +89,8 @@
                         writer.setStyle('min-height', '200px', editor.editing.view.document.getRoot());
                     });
 
-                    // Adiciona um evento para atualizar o campo oculto quando o conteúdo do editor muda
                     editor.model.document.on('change:data', () => {
                         const data = editor.getData();
-
-                        // Regex para encontrar todas as tags de imagem e extrair suas URLs
                         const regex = /<img[^>]+src="([^">]+)"/g;
                         let match;
                         const imageUrls = [];
@@ -101,32 +105,22 @@
                     console.error(error);
                 });
 
-            // Função para ocultar as divs com a classe "ck-powered-by"
             function hidePoweredByDivs() {
-                // Seletor para as divs com a classe "ck-powered-by"
                 const poweredByDivs = document.querySelectorAll('.ck-powered-by');
-
-                // Iterar sobre as divs encontradas e ocultá-las
                 poweredByDivs.forEach(div => {
                     div.style.display = 'none !important';
                 });
             }
 
-            // Função para ocultar a div com a classe "ck-body-wrapper"
             function hideCKBodyWrapper() {
                 $('.ck-body-wrapper').hide();
             }
 
-            // Callback a ser chamado quando ocorrerem mudanças no DOM
-            const mutationCallback = function (mutationsList, observer) {
+            const mutationCallback = function(mutationsList, observer) {
                 for (const mutation of mutationsList) {
-                    // Verificar se nodes foram adicionados
                     if (mutation.type === 'childList') {
-                        // Verificar se algum node adicionado possui a classe "ck-body-wrapper"
                         const addedNodes = Array.from(mutation.addedNodes);
                         const ckBodyWrapper = addedNodes.find(node => $(node).hasClass('ck-body-wrapper'));
-
-                        // Ocultar a div "ck-body-wrapper" se encontrada
                         if (ckBodyWrapper) {
                             hideCKBodyWrapper();
                         }
@@ -134,20 +128,40 @@
                 }
             };
 
-            // Criar um MutationObserver com o callback
             const observer = new MutationObserver(mutationCallback);
 
-            // Configurações do MutationObserver (observar adições/remoções de nodes no DOM)
-            const observerConfig = { childList: true, subtree: true };
+            const observerConfig = {
+                childList: true,
+                subtree: true
+            };
 
-            // Observar mudanças no DOM
             observer.observe(document.body, observerConfig);
 
-            // Ocultar a div "ck-body-wrapper" se já estiver presente no DOM
-            $(document).ready(function () {
+            $(document).ready(function() {
                 hideCKBodyWrapper();
             });
+        </script>
 
+        <!-- Tagify JS -->
+        <script src="https://cdn.jsdelivr.net/npm/@yaireo/tagify"></script>
+
+        <script>
+            document.addEventListener('DOMContentLoaded', function() {
+                // Pegue as tags do PHP e transforme em array de strings
+                var availableTags = <?php echo json_encode($tags); ?>;
+
+                // Inicializa o Tagify no input de tags com a whitelist de tags disponíveis
+                var input = document.querySelector('#tags');
+                new Tagify(input, {
+                    whitelist: availableTags,
+                    dropdown: {
+                        maxItems: 20,           // Número máximo de sugestões a mostrar
+                        classname: "tags-look", // Nome da classe CSS para o dropdown
+                        enabled: 0,             // Mostrar sugestões ao começar a digitar
+                        closeOnSelect: false    // Não fechar o dropdown ao selecionar uma tag
+                    }
+                });
+            });
         </script>
 
 </body>

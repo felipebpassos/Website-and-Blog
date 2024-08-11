@@ -15,19 +15,28 @@ class editorController extends Controller
         }
     }
 
-    // Generates the log-in page
+    // Generates the editor page
     public function index()
     {
+        // Instancie o modelo Posts
+        $posts_model = new Posts();
+
+        // Pegue todas as tags
+        $tags = $posts_model->getAllTags();
+
         //set template
         $template = 'editor';
 
         //set page data
         $data['view'] = '';
-        $data['title'] = 'Editor | Gabriela Castro Psicóloga ';
+        $data['title'] = 'Editor | Gabriela Castro Psicóloga';
         $data['description'] = '';
         $data['styles'] = array('editor');
         $data['scripts_head'] = array('');
         $data['scripts_body'] = array('scroll-invisible', 'fade-img', 'fade-in-slide-up');
+
+        // Adicione as tags aos dados da página
+        $data['tags'] = $tags;
 
         //load view
         $this->loadTemplates($template, $data);
@@ -41,7 +50,7 @@ class editorController extends Controller
             if (!empty($_POST["titulo"]) && !empty($_POST["conteudo"]) && isset($_FILES['capa']) && $_FILES['capa']['error'] === UPLOAD_ERR_OK) {
                 // Sanitize dos dados recebidos
                 $titulo = htmlspecialchars($_POST["titulo"]);
-                $conteudo = htmlspecialchars($_POST["conteudo"]);
+                $conteudo = $_POST["conteudo"];
 
                 // Caminho temporário do arquivo
                 $arquivo_temporario = $_FILES['capa']['tmp_name'];
@@ -77,11 +86,56 @@ class editorController extends Controller
 
                 // Chama o método salvarPost do modelo para salvar o título no banco de dados
                 if ($post_id) {
+
+                    if (isset($_POST['tags'])) {
+                        // Decodifique a string JSON das tags para um array associativo
+                        $tags_json = json_decode($_POST['tags'], true);
+
+                        // Extraia apenas os valores das tags
+                        $tags = [];
+                        foreach ($tags_json as $tag) {
+                            if (isset($tag['value'])) {
+                                $tags[] = $tag['value'];
+                            }
+                        }
+
+                        // Agora você tem um array simples de tags
+                        // Salve as tags associadas ao post
+                        $posts_model->salvarTags($post_id, $tags);
+                    }
+
                     // Define o nome do arquivo referente ao conteúdo do post com base no ID
                     $file_name = 'post' . $post_id . '.html';
 
                     // Caminho completo para salvar o arquivo
                     $file_path = './posts/' . $file_name;
+
+                    function replaceYoutubeEmbed($content)
+                    {
+                        // Regex para encontrar o trecho gerado pelo CKEditor
+                        $pattern = '/<figure class="media">\s*<oembed url="https:\/\/www\.youtube\.com\/watch\?v=([a-zA-Z0-9_\-]+)"><\/oembed>\s*<\/figure>/';
+
+                        // Substitui pelo iframe correto
+                        $replacement = '<iframe width="560" height="315" src="https://www.youtube.com/embed/$1" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>';
+
+                        // Realiza a substituição
+                        return preg_replace($pattern, $replacement, $content);
+                    }
+
+                    // Antes de salvar, substitui os trechos de vídeo
+                    $conteudo = replaceYoutubeEmbed($conteudo);
+
+                    function adjustImagePaths($content) {
+                        // Substitui './ckfinder/userfiles/images/' por o caminho correto '/ckfinder/userfiles/images/'
+                        $content = str_replace('src="./ckfinder/userfiles/images/', 'src="../../ckfinder/userfiles/images/', $content);
+                    
+                        return $content;
+                    }
+                    
+                    // Ajusta os caminhos das imagens antes de salvar
+                    $conteudo = adjustImagePaths($conteudo);
+
+                    $conteudo = htmlspecialchars($conteudo);
 
                     // Salva o conteúdo no arquivo
                     if (file_put_contents($file_path, htmlspecialchars_decode($conteudo))) {

@@ -58,7 +58,17 @@
                     </div>
                     <div class="tags">
                         <i class="fa-solid fa-tags"></i>
-                        <span><?php echo htmlspecialchars($post['tags']); ?></span>
+                        <span>
+                            <?php
+                            if (!empty($tags)) {
+                                // Imprime as tags separadas por vírgula e com a primeira letra maiúscula
+                                $tags_array = array_map('ucfirst', $tags);
+                                echo htmlspecialchars(implode(', ', $tags_array));
+                            } else {
+                                echo 'Nenhuma tag disponível.';
+                            }
+                            ?>
+                        </span>
                     </div>
                 </div>
                 <div id="audio-component">
