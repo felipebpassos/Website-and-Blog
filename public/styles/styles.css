@@ -83,7 +83,9 @@ button a {
     background: linear-gradient(to bottom, transparent, var(--bege-escuro));
 }
 
-.fade-in-slide-up, .fade-in-slide-up-delay, .fade-in-slide-up-long-delay {
+.fade-in-slide-up,
+.fade-in-slide-up-delay,
+.fade-in-slide-up-long-delay {
     opacity: 0;
     transform: translateY(40px);
 }
@@ -96,11 +98,15 @@ button a {
     transition: background-color 0.8s ease, color 0.8s ease, opacity 1.5s ease, transform 1.5s ease;
 }
 
-.apresentacao-principal h1.fade-in-slide-up, .fade-in-slide-up-delay, .fade-in-slide-up-long-delay {
+.apresentacao-principal h1.fade-in-slide-up,
+.fade-in-slide-up-delay,
+.fade-in-slide-up-long-delay {
     transition: opacity 0.5s ease, transform 0.5s ease;
 }
 
-.fade-in-slide-up.ativo, .fade-in-slide-up-delay.ativo, .fade-in-slide-up-long-delay.ativo  {
+.fade-in-slide-up.ativo,
+.fade-in-slide-up-delay.ativo,
+.fade-in-slide-up-long-delay.ativo {
     opacity: 1;
     transform: translateY(0);
 }
@@ -188,6 +194,106 @@ header nav ul li a {
     color: inherit;
 }
 
+.toggle-menu {
+    margin-top: 50px;
+    display: none;
+    border: none;
+    background-color: transparent;
+    color: var(--branco);
+    font-size: 23px;
+}
+
+menu {
+    position: fixed;
+    height: 100vh;
+    width: 100%;
+    top: 0;
+    left: 0;
+    background-color: var(--bege-escuro);
+    opacity: 0;
+    z-index: -1;
+    font-family: 'Open Sans', sans-serif !important;
+}
+
+menu.opened {
+    opacity: 1;
+    z-index: 9999;
+}
+
+.close-popup {
+    position: absolute;
+    top: 30px;
+    right: 40px;
+    padding: 0;
+    z-index: 9996;
+}
+
+.close {
+    position: relative;
+    width: fit-content;
+    cursor: pointer;
+}
+
+menu nav {
+    width: fit-content;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+menu nav ul {
+    padding: 0;
+}
+
+menu nav ul li {
+    display: flex;
+    justify-content: center;
+    list-style: none;
+    margin-bottom: 60px;
+    overflow: hidden;
+    height: fit-content;
+}
+
+menu nav ul li a {
+    color: var(--branco);
+    font-size: 45px;
+    font-weight: 800;
+    text-decoration: none;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    line-height: 1.3em;
+}
+
+#sobreMim {
+    font-size: 42px;
+}
+
+menu ul li span {
+    display: block;
+    transform: translateY(60px);
+    transition: transform 1.2s ease;
+}
+
+menu ul li span.animate {
+    transform: translateY(0);
+}
+
+.menu-redes {
+    padding: 0;
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.menu-redes li {
+    display: inline-block;
+    margin: 10px 15px;
+    font-size: 25px;
+}
+
 .redes-sociais {
     position: absolute;
     z-index: 2;
@@ -225,7 +331,9 @@ nav li:hover i {
     z-index: -1;
 }
 
-section {overflow: hidden;}
+section {
+    overflow: hidden;
+}
 
 .apresentacao-principal {
     padding: 140px 100px;
@@ -348,7 +456,11 @@ section {overflow: hidden;}
     padding: 30px;
 }
 
-.terapia-online .card span {font-size: 17px; text-align: center; color: var(--light-grey);}
+.terapia-online .card span {
+    font-size: 17px;
+    text-align: center;
+    color: var(--light-grey);
+}
 
 .formacao {
     padding: 80px 12%;
@@ -364,7 +476,7 @@ section {overflow: hidden;}
 .formacao .texto {
     margin-left: 20px;
     width: 700px;
-    font-family: 'Open Sans', sans-serif !important; 
+    font-family: 'Open Sans', sans-serif !important;
 }
 
 .formacao .texto p {
@@ -378,10 +490,23 @@ section {overflow: hidden;}
     font-weight: bold;
 }
 
-.formacao ul {padding: 0;}
-.formacao ul li {list-style-type: none; margin: 30px 0;}
-.formacao ul li h5 {font-size: 22px; color: var(--bege-escuro);}
-.formacao ul li span {font-size: 22px;}
+.formacao ul {
+    padding: 0;
+}
+
+.formacao ul li {
+    list-style-type: none;
+    margin: 30px 0;
+}
+
+.formacao ul li h5 {
+    font-size: 22px;
+    color: var(--bege-escuro);
+}
+
+.formacao ul li span {
+    font-size: 22px;
+}
 
 .agendamento {
     padding: 150px 0;
@@ -726,13 +851,118 @@ svg {
         font-size: 20px;
         max-width: 500px;
     }
+
 }
 
-@media (max-width: 500px) {
+@media (max-width: 700px) {
+
+    .whatsapp-box {
+        right: 20px;
+    }
+
+    .message-box {
+        right: 20px;
+    }
+}
+
+@media (max-width: 550px) {
+
+    .logo {
+        top: 20px;
+        left: 20px;
+        width: 90px;
+    }
+
+    .toggle-menu {
+        display: block;
+    }
+
+    header nav {
+        display: none;
+    }
+
+    .apresentacao-principal {
+        padding: 140px 0;
+    }
+
+    .apresentacao-principal .texto {
+        text-align: center;
+        padding-top: 160px;
+        margin: auto;
+        width: fit-content;
+    }
+
+    .apresentacao-principal h1 {
+        font-size: 50px;
+    }
+
+    .apresentacao-principal h3 {
+        font-size: 20px;
+    }
+
+    .apresentacao-principal p {
+        max-width: 380px;
+        font-size: 14px;
+    }
+
+    #imagem-fade {
+        position: relative;
+        width: fit-content;
+        margin: auto;
+        margin-bottom: 20px;
+        left: unset;
+        bottom: unset;
+    }
+
+    #imagem-fade img {
+        height: 430px;
+    }
+
+    .redes-sociais {
+        display: none;
+    }
+
+    .sobre-mim h1 {
+        font-size: 45px;
+    }
+
+    .caffe-img {
+        width: 100%;
+        height: auto;
+    }
 
     .formacao {
         padding: 80px 8%;
     }
+
+    .formacao .titulo-img {
+        display: block;
+        height: 70px;
+        margin-left: -10px;
+    }
+
+    .formacao .texto {
+        margin-left: 0;
+        width: 100%;
+    }
+
+    .formacao .texto p {
+        font-size: 16px;
+        max-width: 100%;
+    }
+
+    .formacao ul li h5 {
+        font-size: 18px;
+    }
+
+    .formacao ul li span {
+        font-size: 18px;
+    }
+
+    .FAQ h1 {
+        font-size: 45px;
+    }
+
 }
 
 @media (min-width: 768px) and (min-height: 1000px) {

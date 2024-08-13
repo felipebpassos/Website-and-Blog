@@ -12,12 +12,14 @@
     <title>
         <?php echo $title; ?>
     </title>
-    <link rel="icon" href="http://localhost/gabi/public/img/logo2-ico.ico">
+    <link rel="icon" href="<?php echo BASE_URL; ?>/public/img/logo2-ico.ico">
 
     <!-- ... estilos ... -->
     <?php
-    foreach ($styles as $style) {
-        echo '<link rel="stylesheet" href="http://localhost/gabi/public/styles/' . $style . '.css">' . PHP_EOL;
+    if (isset($styles)) {
+        foreach ($styles as $style) {
+            echo '<link rel="stylesheet" href="' . BASE_URL . '/public/styles/' . $style . '.css">' . PHP_EOL;
+        }
     }
     ?>
 
@@ -29,8 +31,10 @@
 
     <!-- Scripts (head) -->
     <?php
-    foreach ($scripts_head as $script) {
-        echo '<script src="http://localhost/gabi/public/script/' . $script . '.js"></script>';
+    if (isset($scripts_head)) {
+        foreach ($scripts_head as $script) {
+            echo '<script src="' . BASE_URL . '/public/script/' . $script . '.js"></script>';
+        }
     }
     ?>
 </head>
@@ -44,7 +48,7 @@
                 <?php echo $error; ?>
             </div>
         <?php endif; ?>
-        <form action="http://localhost/gabi/login/process" method="post">
+        <form action="<?php echo BASE_URL; ?>/login/process" method="post">
             <div class="form-group">
                 <label for="username">Usuário:</label>
                 <input type="text" id="username" name="username" class="form-control" required>

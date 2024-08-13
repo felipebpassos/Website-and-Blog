@@ -12,14 +12,26 @@
     <title>
         <?php echo $title; ?>
     </title>
-    <link rel="icon" href="http://localhost/gabi/public/img/logo-ico.ico">
+    <link rel="icon" href="<?php echo BASE_URL; ?>/public/img/logo-ico.ico">
+    <meta property="og:title" content="<?php echo $description; ?>">
+    <meta property="og:description" content="<?php echo $title; ?>">
+    <meta property="og:image" content="<?php echo BASE_URL; ?>/public/img/capa_site.png">
+    <meta property="og:url" content="https://www.psigabrielacastro.com.br">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Gabriela Castro ">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="<?php echo $title; ?>">
+    <meta name="twitter:description" content="<?php echo $description; ?>">
+    <meta name="twitter:image" content="<?php echo BASE_URL; ?>/public/img/capa_site.png">
 
     <!-- ... estilos ... -->
-    <link rel="stylesheet" href="http://localhost/gabi/public/styles/styles.css">
-    <link rel="stylesheet" href="http://localhost/gabi/public/styles/footer.css">
+    <link rel="stylesheet" href="<?php echo BASE_URL; ?>/public/styles/styles.css">
+    <link rel="stylesheet" href="<?php echo BASE_URL; ?>/public/styles/footer.css">
     <?php
-    foreach ($styles as $style) {
-        echo '<link rel="stylesheet" href="http://localhost/gabi/public/styles/' . $style . '.css">' . PHP_EOL;
+    if (isset($styles)) {
+        foreach ($styles as $style) {
+            echo '<link rel="stylesheet" href="' . BASE_URL . '/public/styles/' . $style . '.css">' . PHP_EOL;
+        }
     }
     ?>
 
@@ -31,8 +43,10 @@
 
     <!-- Scripts (head) -->
     <?php
-    foreach ($scripts_head as $script) {
-        echo '<script src="http://localhost/gabi/public/script/' . $script . '.js"></script>';
+    if (isset($styles)) {
+        foreach ($styles as $script) {
+            echo '<script src="' . BASE_URL . '/public/script/' . $script . '.js"></script>';
+        }
     }
     ?>
 </head>
@@ -43,16 +57,21 @@
     <header>
 
         <div class="logo">
-            <img src="http://localhost/gabi/public/img/logo2.png" alt="">
+            <img src="<?php echo BASE_URL; ?>/public/img/logo2.png" alt="">
         </div>
 
         <nav>
             <ul>
                 <li><a href="#sobre">Sobre Mim</a></li>
                 <li><a href="https://api.whatsapp.com/send/?phone=5579981026492&text&type=phone_number&app_absent=0" target="_blank">Agendar Horário</a></li>
-                <li><a href="http://localhost/gabi/blog">Blog</a></li>
+                <li><a href="<?php echo BASE_URL; ?>/blog">Blog</a></li>
             </ul>
         </nav>
+
+        <button class="toggle-menu" id="toggle-menu">
+            <i class="fa-solid fa-bars" style="margin-right: 10px;"></i>
+            <span>MENU</span>
+        </button>
 
     </header>
 
@@ -64,8 +83,24 @@
     </nav>
 
     <div class="foto-fundo">
-        <img width="100%" src="http://localhost/gabi/public/img/gabi_fundo.jpg" alt="">
+        <picture>
+            <!-- Para telas de largura mínima de 1200px, use a imagem de alta resolução -->
+            <source media="(min-width: 1200px)" srcset="<?php echo BASE_URL; ?>/public/img/gabi_fundo.jpg">
+
+            <!-- Para telas de largura mínima de 768px, use uma imagem de resolução média -->
+            <source media="(min-width: 768px)" srcset="<?php echo BASE_URL; ?>/public/img/gabi_fundo.jpg">
+
+            <!-- Para telas menores que 768px, use uma imagem de baixa resolução -->
+            <source media="(max-width: 767px)" srcset="<?php echo BASE_URL; ?>/public/img/gabi_fundo_portrait_stretched.jpg">
+
+            <!-- Para telas menores que 768px, use uma imagem de baixa resolução -->
+            <source media="(max-width: 375px)" srcset="<?php echo BASE_URL; ?>/public/img/gabi_fundo_portrait.jpg">
+
+            <!-- Imagem padrão de fallback se nenhuma das condições acima for atendida -->
+            <img width="100%" src="<?php echo BASE_URL; ?>/public/img/gabi_fundo.jpg" alt="Imagem de fundo">
+        </picture>
     </div>
+
 
     <main>
 
@@ -74,7 +109,7 @@
             <div class="texto">
                 <div>
                     <div id="imagem-fade">
-                        <img src="http://localhost/gabi/public/img/gabi1.png" alt="">
+                        <img src="<?php echo BASE_URL; ?>/public/img/gabi1.png" alt="">
                         <div class="fade-bottom"></div>
                     </div>
                     <h1 class="fade-in-slide-up">GABRIELA<br>CASTRO</h1>
@@ -82,7 +117,7 @@
                     <p class="fade-in-slide-up-long-delay">Ajudo jovens e adultos a viverem uma vida mais saudável e funcional, entendendo melhor seus pensamentos, emoções e comportamentos.</p>
                 </div>
             </div>
-            <img src="http://localhost/gabi/public/img/flor_decor.png" id="decor" alt="">
+            <img src="<?php echo BASE_URL; ?>/public/img/flor_decor.png" id="decor" alt="">
         </section>
 
         <!-- Sobre -->
@@ -90,13 +125,13 @@
             <div class="sobre-mim">
                 <h1>Sobre mim</h1>
                 <div class="content">
-                    <img class="caffe-img" src="http://localhost/gabi/public/img/gabi_caffe.jpg" alt="">
+                    <img class="caffe-img" src="<?php echo BASE_URL; ?>/public/img/gabi_caffe.jpg" alt="">
                     <p class="texto fade-in-slide-up">
                         Gostaria primeiramente de dizer que fico feliz em vê-lo(a) disposto(a) a optar pelo autocuidado e bem-estar emocional. Embora a terapia possa ser um processo desafiador, os benefícios que ela traz são recompensadores.
                         <br><br>
                         Com mais de 3 anos de experiência, tenho ajudado jovens e adultos a encontrarem equilíbrio e funcionalidade em suas vidas, oferecendo compreensão e ferramentas essenciais para uma mudança que traga uma melhor qualidade de vida.
                         <br><br>
-                        Utilizo como abordagem a Terapia Cognitivo-Comportamental (TCC), que permite identificar e modificar padrões de pensamento e comportamento que causam desconforto emocional. Ajundando o paciente a lidar melhor com a ansiedade, depressão, assim como transtornos alimentares, de personalidade e de humor.
+                        Sou psicóloga clínica atuando com base na Terapia Cognitivo-Comportamental (TCC) de forma online e remota, via Google Meet. Essa abordagem permite identificar e modificar padrões de pensamento e comportamento que causam desconforto emocional. Atendo adultos com Transtorno de Déficit de Atenção e Hiperatividade (TDAH), Transtorno Afetivo Bipolar, Transtornos de Ansiedade (TAG, fobias em geral, fobia social, ansiedade de separação, síndrome do pânico e entre outros) e relacionamentos.
                         <br><br>
                         Estou pronta para te ajudar. Agende agora mesmo uma sessão ou entre em contato para mais informações.
                         <a class="fade-in-slide-up" style="margin:auto; margin-top: 50px; display: block; width:fit-content;" href="https://api.whatsapp.com/send/?phone=5579981026492&text&type=phone_number&app_absent=0" target="_blank"><button class="btn-1">Agende uma sessão</button></a>
@@ -134,9 +169,9 @@
             </div>
 
             <div class="formacao">
-                <img class="titulo-img fade-in-slide-up" src="http://localhost/gabi/public/img/formacao.png" alt="">
+                <img class="titulo-img fade-in-slide-up" src="<?php echo BASE_URL; ?>/public/img/formacao.png" alt="">
                 <div class="texto">
-                    <p>Após a graduação em Psicologia, continuei ampliando meus conhecimentos através de cursos especializados e experiências na área, aprimorando minhas habilidades no manejo da ansiedade, depressão, transtornos alimentares, de personalidade e de humor.</p>
+                    <p>Após a graduação em Psicologia, continuei ampliando meus conhecimentos através de cursos especializados e experiências na área, aprimorando minhas habilidades no manejo de transtornos ou desconfortos relacionados à ansiedade, ao humor e comportamentos.</p>
                     <h3>Especialização</h3>
                     <ul>
                         <li>
@@ -252,6 +287,29 @@
         </div>
     </footer>
 
+    <menu>
+        <div class="close-popup">
+            <div class="close">
+                <svg class="x" viewBox="0 0 12 12" style="height: 22px; width: 22px;">
+                    <path stroke="#fff" fill="#fff" d="M4.674 6L.344 1.05A.5.5 0 0 1 1.05.343L6 4.674l4.95-4.33a.5.5 0 0 1 .707.706L7.326 6l4.33 4.95a.5.5 0 0 1-.706.707L6 7.326l-4.95 4.33a.5.5 0 0 1-.707-.706L4.674 6z">
+                    </path>
+                </svg>
+            </div>
+        </div>
+        <nav>
+            <ul>
+                <li><span><a id="sobreMim" href="#sobre">Sobre Mim</a></span></li>
+                <li><span><a href="https://api.whatsapp.com/send/?phone=5579981026492&text&type=phone_number&app_absent=0" target="_blank">Agendar Horário</a></span></li>
+                <li><span><a href="#faq">Dúvidas</a></span></li>
+                <li><span><a href="<?php echo BASE_URL; ?>/blog">Blog</a></span></li>
+            </ul>
+        </nav>
+        <ul class="menu-redes">
+            <li><a href="https://www.instagram.com/psigabrielacastrocm/" target="_blank"><i class="fa-brands fa-instagram"></i></a></li>
+            <li><a href="https://www.linkedin.com/in/gabriela-castro-b77848226/?originalSubdomain=br" target="_blank"><i class="fa-brands fa-linkedin"></i></a></li>
+        </ul>
+    </menu>
+
     <div class="message-box">
         <span class="texto">Fale comigo<span class="close">x</span></span>
     </div>
@@ -269,8 +327,10 @@
     <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
     <!-- js files (body) -->
     <?php
-    foreach ($scripts_body as $script) {
-        echo '<script src="http://localhost/gabi/public/script/' . $script . '.js"></script>';
+    if (isset($scripts_body)) {
+        foreach ($scripts_body as $script) {
+            echo '<script src="' . BASE_URL . '/public/script/' . $script . '.js"></script>';
+        }
     }
     ?>
 </body>

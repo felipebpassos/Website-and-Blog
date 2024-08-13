@@ -12,16 +12,28 @@
     <title>
         <?php echo $title; ?>
     </title>
-    <link rel="icon" href="http://localhost/gabi/public/img/logo2-ico.ico">
+    <link rel="icon" href="<?php echo BASE_URL; ?>/public/img/logo-ico.ico">
+    <meta property="og:title" content="<?php echo $title; ?>">
+    <meta property="og:description" content="">
+    <meta property="og:image" content="<?php echo BASE_URL; ?>/public/img/capa_site.png">
+    <meta property="og:url" content="https://www.psigabrielacastro.com.br">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Gabriela Castro ">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="<?php echo $title; ?>">
+    <meta name="twitter:description" content="">
+    <meta name="twitter:image" content="<?php echo BASE_URL; ?>/public/img/capa_site.png">
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
 
     <!-- ... estilos ... -->
-    <link rel="stylesheet" href="http://localhost/gabi/public/styles/footer.css">
+    <link rel="stylesheet" href="<?php echo BASE_URL; ?>/public/styles/footer.css">
     <?php
-    foreach ($styles as $style) {
-        echo '<link rel="stylesheet" href="http://localhost/gabi/public/styles/' . $style . '.css">' . PHP_EOL;
+    if (isset($styles)) {
+        foreach ($styles as $style) {
+            echo '<link rel="stylesheet" href="'. BASE_URL . '/public/styles/' . $style . '.css">' . PHP_EOL;
+        }
     }
     ?>
 
@@ -31,8 +43,10 @@
 
     <!-- Scripts (head) -->
     <?php
-    foreach ($scripts_head as $script) {
-        echo '<script src="http://localhost/gabi/public/script/' . $script . '.js"></script>';
+    if (isset($scripts_head)) {
+        foreach ($scripts_head as $script) {
+            echo '<script src="'. BASE_URL . '/public/script/' . $script . '.js"></script>';
+        }
     }
     ?>
 </head>
@@ -42,15 +56,15 @@
     <!-- Cabeçalho -->
     <header>
         <div class="background">
-            <img src="http://localhost/gabi/public/img/banner.png" alt="Banner de fundo">
+            <img src="<?php echo BASE_URL; ?>/public/img/banner.png" alt="Banner de fundo">
         </div>
         <div class="content">
-            <img src="http://localhost/gabi/public/img/logo_blog.png" alt="Gabriela Castro Psicóloga | Logo (blog)">
+            <img src="<?php echo BASE_URL; ?>/public/img/logo_blog.png" alt="Gabriela Castro Psicóloga | Logo (blog)">
             <nav>
                 <ul>
-                    <li><a href="http://localhost/gabi/">Home</a></li>
+                    <li><a href="<?php echo BASE_URL; ?>">Home</a></li>
                     <li><span></span></li>
-                    <li><a href="http://localhost/gabi/blog">Blog</a></li>
+                    <li><a href="<?php echo BASE_URL; ?>/blog">Blog</a></li>
                 </ul>
             </nav>
         </div>
@@ -71,7 +85,7 @@
                     <div class="row">
                         <?php foreach ($chunk as $post): ?>
                             <div class="col-md-4">
-                                <a class="post-link" href="http://localhost/gabi/blog/post/<?php echo $post['id']; ?>">
+                                <a class="post-link" href="<?php echo BASE_URL; ?>/blog/post/<?php echo $post['id']; ?>">
                                     <div class="card">
                                         <div class="capa">
                                             <?php if (!empty($post['url_capa'])): ?>

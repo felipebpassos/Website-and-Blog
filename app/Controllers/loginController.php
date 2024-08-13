@@ -35,16 +35,16 @@ Class loginController extends Controller {
                 session_start();
                 
                 $_SESSION['name'] = 'Gabi';
-                header('Location: http://localhost/gabi/editor');
+                header('Location: ' . BASE_URL . '/editor');
                 exit;
             } else {
                 // Login falhou, redirecione de volta para a página de login com uma mensagem de erro
-                header('Location: http://localhost/gabi/login?error=1');
+                header('Location: ' . BASE_URL . '/login?error=1');
                 exit;
             }
         } else {
             // Se os dados do formulário não foram enviados via POST, redirecione de volta para a página de login
-            header('Location: http://localhost/gabi/login');
+            header('Location: ' . BASE_URL . '/login');
             exit;
         }
     }
@@ -57,7 +57,7 @@ Class loginController extends Controller {
         session_destroy();
     
         // Redireciona o usuário para a página de login
-        header('Location: http://localhost/gabi/login');
+        header('Location: ' . BASE_URL . '/login');
         exit;
     }
     

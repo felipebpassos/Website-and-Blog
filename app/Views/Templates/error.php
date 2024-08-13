@@ -23,7 +23,7 @@
 <body>
     <main>
     <p>404 - Página não encontrada! :&#40;</p>
-        <a href="http://localhost/gabi/">Voltar para a Home</a>
+        <a href="<?php echo BASE_URL; ?>">Voltar para a Home</a>
     </main>
 </body>
 

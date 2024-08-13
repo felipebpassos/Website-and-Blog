@@ -10,7 +10,7 @@ class editorController extends Controller
         // Verifica se não há uma sessão válida
         if (!isset($_SESSION['name'])) {
             // Redireciona para a página de login
-            header("Location: http://localhost/gabi/login");
+            header('Location: ' . BASE_URL . '/login');
             exit();
         }
     }
@@ -60,7 +60,7 @@ class editorController extends Controller
                 $caminho_arquivo = "./public/uploads/" . $nome_arquivo;
                 move_uploaded_file($arquivo_temporario, $caminho_arquivo);
                 // URL da imagem de capa para salvar no banco de dados
-                $url_capa = "http://localhost/gabi/public/uploads/" . $nome_arquivo;
+                $url_capa = BASE_URL . "/public/uploads/" . $nome_arquivo;
 
                 // Encontra todas as URLs das imagens no conteúdo do post
                 preg_match_all('/<img[^>]+src="([^">]+)"/', $conteudo, $matches);
@@ -110,27 +110,8 @@ class editorController extends Controller
                     // Caminho completo para salvar o arquivo
                     $file_path = './posts/' . $file_name;
 
-                    function replaceYoutubeEmbed($content)
-                    {
-                        // Regex para encontrar o trecho gerado pelo CKEditor
-                        $pattern = '/<figure class="media">\s*<oembed url="https:\/\/www\.youtube\.com\/watch\?v=([a-zA-Z0-9_\-]+)"><\/oembed>\s*<\/figure>/';
-
-                        // Substitui pelo iframe correto
-                        $replacement = '<iframe width="560" height="315" src="https://www.youtube.com/embed/$1" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>';
-
-                        // Realiza a substituição
-                        return preg_replace($pattern, $replacement, $content);
-                    }
-
                     // Antes de salvar, substitui os trechos de vídeo
                     $conteudo = replaceYoutubeEmbed($conteudo);
-
-                    function adjustImagePaths($content) {
-                        // Substitui './ckfinder/userfiles/images/' por o caminho correto '/ckfinder/userfiles/images/'
-                        $content = str_replace('src="./ckfinder/userfiles/images/', 'src="../../ckfinder/userfiles/images/', $content);
-                    
-                        return $content;
-                    }
                     
                     // Ajusta os caminhos das imagens antes de salvar
                     $conteudo = adjustImagePaths($conteudo);
@@ -140,7 +121,7 @@ class editorController extends Controller
                     // Salva o conteúdo no arquivo
                     if (file_put_contents($file_path, htmlspecialchars_decode($conteudo))) {
                         // Redireciona de volta para index.php após a inserção
-                        header("Location: http://localhost/gabi/editor");
+                        header("Location: " . BASE_URL . "/editor");
                         exit();
                     } else {
                         echo "Erro ao salvar o conteúdo do Post.";

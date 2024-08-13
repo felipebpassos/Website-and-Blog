@@ -128,6 +128,9 @@ header .content nav ul li span {
     border: none !important;
     box-shadow: 0px 0px 12px rgba(0, 0, 0, 0.1);
     transition: transform 0.5s ease;
+    max-width: 400px;
+    margin: auto;
+    margin-bottom: 50px;
 }
 
 .post-link:hover .card {
@@ -137,11 +140,15 @@ header .content nav ul li span {
 .card .capa {
     width: 100%;
     display: flex;
+    justify-content: center;
+    align-items: center;
     overflow: hidden;
 }
 
 .card .capa img {
     object-fit: contain;
+    max-height: 300px;
+    min-height: 300px;
 }
 
 .card-title {
@@ -306,4 +313,13 @@ main {
     color: var(--marrom);
     margin-bottom: 30px;
     margin-top: 20px;
+}
+
+@media (max-width: 800px) {
+
+    .card-title {
+        height: calc(2* 1.2em);
+        font-size: 1em;
+    }
+
 }

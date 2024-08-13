@@ -15,7 +15,7 @@ class logoutController extends Controller
         session_destroy();
 
         // Redireciona para a página de login ou outra página de sua escolha
-        header('Location: http://localhost/gabi/');
+        header('Location: ' . BASE_URL);
         exit;
     }
 

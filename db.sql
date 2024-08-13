@@ -2,9 +2,9 @@ USE gabi;
 
 DROP TABLE posts;
 
-DROP TABLE tags;
+DROP TABLE posts;
 
-select *from tags;
+select * from posts;
 
 -- Tabela para armazenar os posts
 CREATE TABLE posts (

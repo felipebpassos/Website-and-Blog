@@ -9,13 +9,13 @@
     <!-- ... meta tags, título e icone ... -->
     <?php echo isset($description) && !empty($description) ? '<meta name="description" content="' . $description . '">' : ''; ?>
     <title><?php echo $title; ?></title>
-    <link rel="icon" href="http://localhost/gabi/public/img/logo2-ico.ico">
+    <link rel="icon" href="<?php echo BASE_URL; ?>/public/img/logo2-ico.ico">
 
     <!-- ... estilos ... -->
     <?php
     if (isset($styles) && is_array($styles)) {
         foreach ($styles as $style) {
-            echo '<link rel="stylesheet" href="http://localhost/gabi/public/styles/' . $style . '.css">' . PHP_EOL;
+            echo '<link rel="stylesheet" href="' . BASE_URL . '/public/styles/' . $style . '.css">' . PHP_EOL;
         }
     }
     ?>
@@ -32,16 +32,16 @@
     <?php
     if (isset($scripts_head) && is_array($scripts_head)) {
         foreach ($scripts_head as $script) {
-            echo '<script src="http://localhost/gabi/public/script/' . $script . '.js"></script>';
+            echo '<script src="' . BASE_URL . '/public/script/' . $script . '.js"></script>';
         }
     }
     ?>
-    <script src="http://localhost/gabi/ckeditor5/ckeditor.js"></script>
+    <script src="<?php echo BASE_URL; ?>/ckeditor5/ckeditor.js"></script>
 </head>
 
 <body>
 
-    <a href="http://localhost/gabi/login/logout">Logout</a>
+    <a href="<?php echo BASE_URL; ?>/login/logout">Logout</a>
 
     <div class="container mt-5">
         <div class="titulo">
@@ -51,7 +51,7 @@
                 blogs. Apresentando opções de formatação e anexa imagens e vídeos do youtube.
             </p>
         </div>
-        <form action="http://localhost/gabi/editor/publicar" method="post" enctype="multipart/form-data">
+        <form action="<?php echo BASE_URL; ?>/editor/publicar" method="post" enctype="multipart/form-data">
             <div class="mb-3">
                 <label for="titulo" class="form-label">Título:</label>
                 <input type="text" id="titulo" name="titulo" class="form-control" required>
@@ -81,7 +81,7 @@
             ClassicEditor
                 .create(document.querySelector('#editor'), {
                     ckfinder: {
-                        uploadUrl: 'http://localhost/gabi/ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Images&responseType=json'
+                        uploadUrl: '<?php echo BASE_URL; ?>/ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Images&responseType=json'
                     }
                 })
                 .then(editor => {

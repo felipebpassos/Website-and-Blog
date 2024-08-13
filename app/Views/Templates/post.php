@@ -5,10 +5,21 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title><?php echo htmlspecialchars($title); ?></title>
-    <link rel="icon" href="http://localhost/gabi/public/img/logo2-ico.ico">
+    <link rel="icon" href="<?php echo BASE_URL; ?>/public/img/logo-ico.ico">
+    <meta property="og:title" content="<?php echo htmlspecialchars($title); ?>">
+    <meta property="og:description" content="">
+    <meta property="og:image" content="<?php echo BASE_URL; ?>/public/img/capa_site.png">
+    <meta property="og:url" content="https://www.psigabrielacastro.com.br">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Gabriela Castro ">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="<?php echo htmlspecialchars($title); ?>">
+    <meta name="twitter:description" content="">
+    <meta name="twitter:image" content="<?php echo BASE_URL; ?>/public/img/capa_site.png">
+
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
-    <link rel="stylesheet" href="http://localhost/gabi/public/styles/footer.css">
-    <link rel="stylesheet" href="http://localhost/gabi/public/styles/blog.css">
+    <link rel="stylesheet" href="<?php echo BASE_URL; ?>/public/styles/footer.css">
+    <link rel="stylesheet" href="<?php echo BASE_URL; ?>/public/styles/blog.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;700&display=swap" rel="stylesheet">
 </head>
@@ -16,15 +27,15 @@
 <body>
     <header>
         <div class="background">
-            <img src="http://localhost/gabi/public/img/banner.png" alt="Banner de fundo">
+            <img src="<?php echo BASE_URL; ?>/public/img/banner.png" alt="Banner de fundo">
         </div>
         <div class="content">
-            <img src="http://localhost/gabi/public/img/logo_blog.png" alt="Gabriela Castro Psicóloga | Logo (blog)">
+            <img src="<?php echo BASE_URL; ?>/public/img/logo_blog.png" alt="Gabriela Castro Psicóloga | Logo (blog)">
             <nav>
                 <ul>
-                    <li><a href="http://localhost/gabi/">Home</a></li>
+                    <li><a href="<?php echo BASE_URL; ?>">Home</a></li>
                     <li><span></span></li>
-                    <li><a href="http://localhost/gabi/blog">Blog</a></li>
+                    <li><a href="<?php echo BASE_URL; ?>/blog">Blog</a></li>
                 </ul>
             </nav>
         </div>
@@ -90,7 +101,7 @@
                 <?php
                 // Inclui o conteúdo do arquivo HTML
                 if (file_exists($conteudo_html)) {
-                    echo file_get_contents(replaceOembedWithIframe(htmlspecialchars_decode($conteudo_html)));
+                    echo file_get_contents((htmlspecialchars_decode($conteudo_html)));
                 } else {
                     echo '<p>Conteúdo não disponível.</p>';
                 }
@@ -123,7 +134,7 @@
     </footer>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
-    <script src="http://localhost/gabi/public/script/audio-script.js"></script>
+    <script src="<?php echo BASE_URL; ?>/public/script/audio-script.js"></script>
 </body>
 
 </html>
