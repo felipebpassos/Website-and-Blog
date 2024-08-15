@@ -5,15 +5,11 @@ class blogController extends Controller
 
     public function index($pagina = 1)
     {
-        if (false) {
-            // Instancie o modelo Posts
-            $posts_model = new Posts();
+        // Instancie o modelo Posts
+        $posts_model = new Posts();
 
-            // Chame o método getPostsPaginados para obter os posts da página atual
-            $posts = $posts_model->getPosts($pagina);
-        } else {
-            $posts = [];
-        }
+        // Chame o método getPostsPaginados para obter os posts da página atual
+        $posts = $posts_model->getPosts($pagina);
 
         // Agora você pode manipular os resultados dos posts como desejar
 
