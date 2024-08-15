@@ -121,6 +121,30 @@
         </div>
     </footer>
 
+    <div class="message-box">
+        <span class="texto">Fale comigo<span class="close">x</span></span>
+    </div>
+
+    <div class="whatsapp-box">
+        <a href="https://api.whatsapp.com/send/?phone=5579981026492&text&type=phone_number&app_absent=0" class="whatsapp-button" target="_blank">
+            <i class="fa-brands fa-whatsapp"></i>
+            <span>Contato</span>
+        </a>
+    </div>
+
+    <!-- Bootstrap JavaScript -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- JQuery -->
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <!-- js files (body) -->
+    <?php
+    if (isset($scripts_body)) {
+        foreach ($scripts_body as $script) {
+            echo '<script src="' . BASE_URL . '/public/script/' . $script . '.js"></script>';
+        }
+    }
+    ?>
+
 </body>
 
 </html>

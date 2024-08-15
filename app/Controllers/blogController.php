@@ -5,11 +5,15 @@ class blogController extends Controller
 
     public function index($pagina = 1)
     {
-        // Instancie o modelo Posts
-        $posts_model = new Posts();
+        if (false) {
+            // Instancie o modelo Posts
+            $posts_model = new Posts();
 
-        // Chame o método getPostsPaginados para obter os posts da página atual
-        $posts = $posts_model->getPosts($pagina);
+            // Chame o método getPostsPaginados para obter os posts da página atual
+            $posts = $posts_model->getPosts($pagina);
+        } else {
+            $posts = [];
+        }
 
         // Agora você pode manipular os resultados dos posts como desejar
 
@@ -22,7 +26,7 @@ class blogController extends Controller
         $data['description'] = '';
         $data['styles'] = array('blog');
         $data['scripts_head'] = array('');
-        $data['scripts_body'] = array('scroll-invisible', 'fade-img', 'fade-in-slide-up');
+        $data['scripts_body'] = array('message-button', 'scroll-invisible', 'fade-img', 'fade-in-slide-up');
 
         // Adicione os posts recuperados aos dados da página
         $data['posts'] = $posts;
@@ -54,7 +58,7 @@ class blogController extends Controller
             $data['description'] = '';
             $data['styles'] = array('blog');
             $data['scripts_head'] = array('');
-            $data['scripts_body'] = array('scroll-invisible', 'fade-img', 'fade-in-slide-up');
+            $data['scripts_body'] = array('message-button', 'scroll-invisible', 'fade-img', 'fade-in-slide-up');
 
             // Adicione o post recuperado aos dados da página
             $data['post'] = $post;

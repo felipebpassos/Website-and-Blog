@@ -131,6 +131,7 @@ button a {
 
 body {
     width: 100%;
+    min-height: 100vh;
     overflow-x: hidden;
     position: relative;
     background-color: var(--bege-escuro) !important;
@@ -195,12 +196,13 @@ header nav ul li a {
 }
 
 .toggle-menu {
-    margin-top: 50px;
+    margin-top: 0;
     display: none;
     border: none;
     background-color: transparent;
     color: var(--branco);
-    font-size: 23px;
+    font-size: 20px;
+    margin-top: 20px;
 }
 
 menu {
@@ -327,12 +329,8 @@ nav li:hover i {
 
 .foto-fundo {
     position: fixed;
-    width: 100%;
+    width: 100vw;
     z-index: -1;
-}
-
-section {
-    overflow: hidden;
 }
 
 .apresentacao-principal {
@@ -867,10 +865,15 @@ svg {
 
 @media (max-width: 550px) {
 
+    header {
+        padding: 0 20px;
+        height: 60px;
+    }
+
     .logo {
-        top: 20px;
-        left: 20px;
-        width: 90px;
+        top: 5px;
+        left: 25px;
+        width: 70px;
     }
 
     .toggle-menu {
@@ -882,7 +885,7 @@ svg {
     }
 
     .apresentacao-principal {
-        padding: 140px 0;
+        padding: 30px 0;
     }
 
     .apresentacao-principal .texto {
@@ -901,7 +904,7 @@ svg {
     }
 
     .apresentacao-principal p {
-        max-width: 380px;
+        max-width: 360px;
         font-size: 14px;
     }
 
@@ -915,7 +918,7 @@ svg {
     }
 
     #imagem-fade img {
-        height: 430px;
+        height: 360px;
     }
 
     .redes-sociais {
@@ -963,6 +966,50 @@ svg {
         font-size: 45px;
     }
 
+}
+
+@media (max-width: 375px) {
+
+    .logo {
+        top: 5px;
+        left: 15px;
+        width: 60px;
+    }
+
+    .toggle-menu {
+        margin-top: 0px;
+        font-size: 16px;
+    }
+
+    menu nav ul li {
+        margin-bottom: 40px;
+    }
+
+    menu nav ul li a {
+        font-size: 38px;
+    }
+
+    .apresentacao-principal {
+        padding: 0;
+    }
+
+    .apresentacao-principal h1 {
+        font-size: 45px;
+    }
+
+    .apresentacao-principal h3 {
+        font-size: 16px;
+    }
+
+    .apresentacao-principal p {
+        max-width: 320px;
+        font-size: 14px;
+    }
+
+    #imagem-fade img {
+        height: 300px;
+    }
+    
 }
 
 @media (min-width: 768px) and (min-height: 1000px) {

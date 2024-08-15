@@ -1,7 +1,7 @@
 function isElementInViewport(el) {
     var rect = el.getBoundingClientRect();
     return (
-        rect.top + 60 <= ((window.innerHeight || document.documentElement.clientHeight))
+        rect.top + 30 <= ((window.innerHeight || document.documentElement.clientHeight))
     );
 }
 

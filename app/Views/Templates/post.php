@@ -132,9 +132,22 @@
             &copy; <?php echo date('Y', strtotime($post['data_publicacao'])); ?> Gabriela Castro, Desenvolvido por <a href="https://www.instagram.com/simplifyweb/" target="_blank">Simplify Web</a>
         </div>
     </footer>
+
+    <div class="message-box">
+        <span class="texto">Fale comigo<span class="close">x</span></span>
+    </div>
+
+    <div class="whatsapp-box">
+        <a href="https://api.whatsapp.com/send/?phone=5579981026492&text&type=phone_number&app_absent=0" class="whatsapp-button" target="_blank">
+            <i class="fa-brands fa-whatsapp"></i>
+            <span>Contato</span>
+        </a>
+    </div>
+    
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
     <script src="<?php echo BASE_URL; ?>/public/script/audio-script.js"></script>
+    <script src="<?php echo BASE_URL; ?>/public/script/message-button.js"></script>
 </body>
 
 </html>

@@ -9,12 +9,13 @@
 
     <!-- ... meta tags, título e icone ... -->
     <?php echo isset($description) && !empty($description) ? '<meta name="description" content="' . $description . '">' : ''; ?>
+    <meta name="keywords" content="Gabriela Castro, psicóloga, psicólogo, saúde mental, ajuda, terapia, Aracaju, Sergipe, psicoterapia, online, remota, ansiedade, ansioso, ansiosa, depressão, transtorno, tdah, especialista, melhor psicóloga de Aracaju, melhor psicóloga de Sergipe, melhor psicóloga do Brasil, psicóloga experiente, experiente">
     <title>
         <?php echo $title; ?>
     </title>
     <link rel="icon" href="<?php echo BASE_URL; ?>/public/img/logo-ico.ico">
-    <meta property="og:title" content="<?php echo $description; ?>">
-    <meta property="og:description" content="<?php echo $title; ?>">
+    <meta property="og:title" content="<?php echo $title; ?>">
+    <meta property="og:description" content="<?php echo $description; ?>">
     <meta property="og:image" content="<?php echo BASE_URL; ?>/public/img/capa_site.png">
     <meta property="og:url" content="https://www.psigabrielacastro.com.br">
     <meta property="og:type" content="website">
@@ -113,7 +114,7 @@
                         <div class="fade-bottom"></div>
                     </div>
                     <h1 class="fade-in-slide-up">GABRIELA<br>CASTRO</h1>
-                    <h3 class="fade-in-slide-up-delay">Psicoterapia | Saúde Mental | Bem-estar</h3>
+                    <h3 class="fade-in-slide-up-delay">Psicóloga | Saúde Mental | Terapia Online</h3>
                     <p class="fade-in-slide-up-long-delay">Ajudo jovens e adultos a viverem uma vida mais saudável e funcional, entendendo melhor seus pensamentos, emoções e comportamentos.</p>
                 </div>
             </div>
